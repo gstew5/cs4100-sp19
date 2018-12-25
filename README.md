@@ -46,20 +46,20 @@ The schedule is subject to revision.
 
 | Week                        | Topic                                 | Reading                        | Assignment |
 |-----------------------------|---------------------------------------|--------------------------------|------------|
-| Week 1 (14 Jan)             | Intro. to the course, compilers, Rust | [The Rust Book](https://doc.rust-lang.org/book/index.html) Chs. 1-3 | Q0 (16 Jan) |
-| Week 2 (21 Jan)             | Rust contd. | [The Rust Book](https://doc.rust-lang.org/book/index.html) Chs. 4-6, 8 | **PA0: Intro. to Rust** (23 Jan) |
+| Week 1 (14 Jan)             | Intro. to the course, compilers, Rust | [The Rust Book](https://doc.rust-lang.org/book/index.html) 1-3 | Q0 (16 Jan) |
+| Week 2 (21 Jan)             | Rust contd. | [The Rust Book](https://doc.rust-lang.org/book/index.html) 4-6, 8 | **PA0: Intro. to Rust** (23 Jan) |
 | Week 3 (28 Jan)             | NO CLASS (Stewart away) | | |
 | Week 4 (4 Feb)              | Virtual machines, bytecode, assemblers | | **PA1: Assembler** (8 Feb) |
-| Week 5 (11 Feb)             | Regular expressions, finite automata, lexers | | Q1 (13 Feb) |
+| Week 5 (11 Feb)             | Regular expressions, finite automata, lexers | Appel 2 | Q1 (13 Feb) |
 | Week 6 (18 Feb)             | From regexps to peephole optimizers | | **PA2: VM** (20 Feb) |
-| Week 7 (25 Feb)             | Runtimes, garbage collection | | Q2 (27 Feb) |
+| Week 7 (25 Feb)             | Runtimes, garbage collection | Appel 13 | Q2 (27 Feb) |
 | Week 8 (4 Mar)              | Intermediate representations | | **PA3: GC+Peephole** (6 Mar) |
 | Week 9 (11 Mar)             | SPRING BREAK | |  |
 | Week 10 (18 Mar)            | From IR to bytecode | | Q3 (20 Mar) |
-| Week 11 (25 Mar)            | Parsing | | Q4 (27 Mar) |
+| Week 11 (25 Mar)            | Parsing | Appel 3 | Q4 (27 Mar) |
 | Week 12 (1 Apr)             | Desugaring, the Grumpy source language | | **PA4: IR** (1 Apr) |
-| Week 13 (8 Apr)             | Types and type checking | | Q5 (10 Apr) |
-| Week 14 (15 Apr)            | Register allocation | | **PA5: Desugaring** (15 Apr) |
+| Week 13 (8 Apr)             | Types and type checking | TAPL 1, 8-9 | Q5 (10 Apr) |
+| Week 14 (15 Apr)            | Register allocation | Appel 11 | **PA5: Desugaring** (15 Apr) |
 | Week 15 (22 Apr)            | Slop | | Q5 (24 Apr) |
 | 29 Apr - 3 May              | FINAL EXAM PERIOD | | |
 

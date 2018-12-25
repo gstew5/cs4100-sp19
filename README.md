@@ -62,3 +62,36 @@ The schedule is subject to revision.
 | Week 14 (15 Apr)            | Register allocation | |
 | Week 15 (22 Apr)            | Slop | |
 | 29 Apr - 3 May              | FINAL EXAM PERIOD | |
+
+## Homework and Collaboration Policies
+
+### Acceptable Collaboration Matrix
+
+|      | Instructor/GA	| Noninstructor (e.g., Another Student) | 
+|------|----------------|---------------------------------------|
+| You  | All collaboration allowed | High-level discussion (of the problems, not your code!) allowed but only after you've started the assignment; must be documented in README as described below |
+
+Unless otherwise noted, homeworks are due Tuesdays by 11:59 p.m. Late homework assignments will be penalized according to the following formula:
+
+* Up to 24 hours late: no deduction, for a max 2 late homeworks per student across the entire semester
+* Homeworks later than 24 hours, or from students who have already turned in 2 late homeworks, will receive 0 points.
+
+You may discuss the homework with other students in the class, but only after you've attempted the problems on your own first. If you do discuss the homework problems with others, write the names of the students you spoke with, along with a brief summary of what you discussed, in a README comment at the top of each submission. Example:
+
+```
+(* README Gordon Stewart, Assn #1 
+I worked with X and Y. We swapped tips regarding the use of pattern-matching in Rust. *)
+```
+
+However, under no circumstances are you permitted to share or directly copy code or other written homework material, except with course instructors. The code and proofs you turn in must be your own. Remember: homework is there to give **you** practice in the new ideas and techniques covered by the course; it does you no good if you don't engage!
+
+That said, if we find that you have cheated on an assignment in this course, you will immediately:
+
+* Be referred to the Office of Community Standards (which may take disciplinary action against you, possibly expulsion); and
+* Flunk the course (receive a final grade of F).
+
+Students in EECS courses such as this one must adhere to the Russ College of Engineering and Technology [Honor Code](https://www.ohio.edu/engineering/academics/academic-integrity.cfm##code), and to the OU [Student Code of Conduct](http://www.ohio.edu/communitystandards/academic/students.cfm). If you haven't read these policies, do so now.
+
+## Students with Disabilities
+
+If you suspect you may need an accommodation based on the impact of a disability, please contact me privately to discuss your specific needs. If you're not yet registered as a student with a disability, contact the Office of Student Accessibility Services first.

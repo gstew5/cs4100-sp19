@@ -55,13 +55,33 @@ The schedule is subject to revision.
 | Week 7 (25 Feb)             | Runtimes, garbage collection | |
 | Week 8 (4 Mar)              | Intermediate representations | |
 | Week 9 (11 Mar)             | SPRING BREAK | |
-| Week 10 (18 Mar)            | Parsing | |
-| Week 11 (25 Mar)            | From IR to bytecode | |
+| Week 10 (18 Mar)            | From IR to bytecode | |
+| Week 11 (25 Mar)            | Parsing | |
 | Week 12 (1 Apr)             | Desugaring, the Grumpy source language | |
 | Week 13 (8 Apr)             | Types and type checking | |
 | Week 14 (15 Apr)            | Register allocation | |
 | Week 15 (22 Apr)            | Slop | |
 | 29 Apr - 3 May              | FINAL EXAM PERIOD | |
+
+## Assignments 
+
+Assignments are due in Blackboard at 11:59pm unless otherwise specified. **Q0**, **Q1**, etc., denote quizzes in Blackboard, generally due on the Wednesdays of weeks without due programming assignments (PAs).
+
+| Assignment                       | Due Date          |
+|----------------------------------|-------------------|
+| Q0                               | 16 Jan (W)        |
+| **PA0: Intro. to Rust**          | 23 Jan (W)        |
+| **PA1: Assembler**               |  8 Feb (F)        | 
+| Q1                               | 13 Feb (W)        |
+| **PA2: GrumpyVM**                | 20 Feb (W)        |
+| Q2                               | 27 Feb (W)        | 
+| **PA3: GC+Peephole**             |  6 Mar (W)        |
+| Q3                               | 13 Mar (W)        |
+| **PA4: Compiling GrumpyIR**      |  1 Apr (M)        |
+| Q4                               | 10 Apr (W)        | 
+| **PA5: Desugaring**              | 12 Apr (F)        |
+| Q5                               | 17 Apr (W)        |
+| **PA6: Types**                   | 22 Apr (M)        |
 
 ## Homework and Collaboration Policies
 

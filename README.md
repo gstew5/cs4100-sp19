@@ -67,9 +67,9 @@ The schedule is subject to revision.
 
 ### Acceptable Collaboration Matrix
 
-|      | Instructor/GA	| Noninstructor (e.g., Another Student) | 
-|------|----------------|---------------------------------------|
-| You  | All collaboration allowed | High-level discussion (of the problems, not your code!) allowed but only after you've started the assignment; must be documented in README as described below |
+|            | Instructor/GA	| Noninstructor (e.g., Another Student) | 
+|------------|----------------|---------------------------------------|
+| ***You***  | All collaboration allowed | High-level discussion (of the problems, not your code!) allowed but only after you've started the assignment; must be documented in README as described below |
 
 Unless otherwise noted, homeworks are due Tuesdays by 11:59 p.m. Late homework assignments will be penalized according to the following formula:
 
@@ -83,7 +83,7 @@ You may discuss the homework with other students in the class, but only after yo
 I worked with X and Y. We swapped tips regarding the use of pattern-matching in Rust. *)
 ```
 
-However, under no circumstances are you permitted to share or directly copy code or other written homework material, except with course instructors. The code and proofs you turn in must be your own. Remember: homework is there to give **you** practice in the new ideas and techniques covered by the course; it does you no good if you don't engage!
+However, **under no circumstances are you permitted to share or directly copy code or other written homework material**, except with course instructors. The code and proofs you turn in must be your own. Remember: homework is there to give **you** practice in the new ideas and techniques covered by the course; it does you no good if you don't engage!
 
 That said, if we find that you have cheated on an assignment in this course, you will immediately:
 
@@ -95,3 +95,36 @@ Students in EECS courses such as this one must adhere to the Russ College of Eng
 ## Students with Disabilities
 
 If you suspect you may need an accommodation based on the impact of a disability, please contact me privately to discuss your specific needs. If you're not yet registered as a student with a disability, contact the Office of Student Accessibility Services first.
+
+## Student Outcomes vs. Course Learning Outcomes
+
+(a) An ability to apply knowledge of computing and mathematics appropriate to the program's student outcomes and to the discipline. Students will be able to:
+
+* Use pattern-matching to decompose and compute on structured data
+* Use recursion to write functions that manipulate recursive types such as syntax trees
+* Use higher-order functions such as map to manipulate data structures such as lists or trees
+* Construct a finite state machine to recognize a given language
+
+(b) An ability to analyze a problem, and identify and define the computing requirements appropriate to its solution. Students will be able to:
+
+* Determine whether a given language is recognizable (e.g., by a RE, DFA, or CFG)
+* Identify the recursive functions appropriate for translating programs into a particular intermediate representation, such as static single assignment form
+
+(c) An ability to design, implement, and evaluate a computer-based system, process, component, or program to meet desired needs. Students will be able to:
+
+* Design, implement, and evaluate against a test suite the correctness of, a lexer and parser for a high-level language
+* Design, implement, and evaluate against a test suite the correctness of, a type-checker for a high-level language
+* Design, implement, and evaluate against a test suite the correctness of, a program transformation mapping expressions to static single assignment form
+* Evaluate the purpose, and correctness of, a program transformation mapping code to static single assignment form
+
+(j) An ability to apply mathematical foundations, algorithmic principles, and computer science theory in the modeling and design of computer-based systems in a way that demonstrates comprehension of the tradeoffs involved in design choices. Students will be able to:
+
+* Apply computer science theory to determine whether a given grammar is parseable by recursive descent
+* Evaluate the tradeoffs, in terms of asymptotic complexity, of distinct garbage collection algorithms
+* Evaluate the tradeoffs in precision vs. computability of static analyses that underlie garbage collection (e.g., for liveness)
+* For a given program, use mathematical foundations such as graph theory to evaluate the feasibility of a particular register-allocation strategy
+
+(k) An ability to apply design and development principles in the construction of software systems of varying complexity. Students will be able to:
+
+* Evaluate the tradeoffs, in terms of design complexity, of a modular vs. monolithic compiler implementation
+* Design and implement a compiler embodying the modular approach

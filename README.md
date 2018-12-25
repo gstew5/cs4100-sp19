@@ -44,44 +44,26 @@ Blackboard will be used only to report grades and to post lecture notes. Up-to-d
 
 The schedule is subject to revision.
 
-| Week                        | Topic                                 | Reading                        |
-|-----------------------------|---------------------------------------|--------------------------------|
-| Week 1 (14 Jan)             | Intro. to the course, compilers, Rust | [The Rust Book](https://doc.rust-lang.org/book/index.html) Chs. 1-3 |
-| Week 2 (21 Jan)             | Rust contd. | [The Rust Book](https://doc.rust-lang.org/book/index.html) Chs. 4-6, 8 |
-| Week 3 (28 Jan)             | NO CLASS (Stewart away) | |
-| Week 4 (4 Feb)              | Virtual machines, bytecode, assemblers | |
-| Week 5 (11 Feb)             | Regular expressions, finite automata, lexers | |
-| Week 6 (18 Feb)             | From regexps to peephole optimizers | |
-| Week 7 (25 Feb)             | Runtimes, garbage collection | |
-| Week 8 (4 Mar)              | Intermediate representations | |
-| Week 9 (11 Mar)             | SPRING BREAK | |
-| Week 10 (18 Mar)            | From IR to bytecode | |
-| Week 11 (25 Mar)            | Parsing | |
-| Week 12 (1 Apr)             | Desugaring, the Grumpy source language | |
-| Week 13 (8 Apr)             | Types and type checking | |
-| Week 14 (15 Apr)            | Register allocation | |
-| Week 15 (22 Apr)            | Slop | |
-| 29 Apr - 3 May              | FINAL EXAM PERIOD | |
-
-## Assignments 
+| Week                        | Topic                                 | Reading                        | Assignment |
+|-----------------------------|---------------------------------------|--------------------------------|------------|
+| Week 1 (14 Jan)             | Intro. to the course, compilers, Rust | [The Rust Book](https://doc.rust-lang.org/book/index.html) Chs. 1-3 | Q0 (16 Jan) |
+| Week 2 (21 Jan)             | Rust contd. | [The Rust Book](https://doc.rust-lang.org/book/index.html) Chs. 4-6, 8 | **PA0: Intro. to Rust** (23 Jan) |
+| Week 3 (28 Jan)             | NO CLASS (Stewart away) | | |
+| Week 4 (4 Feb)              | Virtual machines, bytecode, assemblers | | **PA1: Assembler** (8 Feb) |
+| Week 5 (11 Feb)             | Regular expressions, finite automata, lexers | | Q1 (13 Feb) |
+| Week 6 (18 Feb)             | From regexps to peephole optimizers | | **PA2: VM** (20 Feb) |
+| Week 7 (25 Feb)             | Runtimes, garbage collection | | Q2 (27 Feb) |
+| Week 8 (4 Mar)              | Intermediate representations | | **PA3: GC+Peephole** (6 Mar) |
+| Week 9 (11 Mar)             | SPRING BREAK | |  |
+| Week 10 (18 Mar)            | From IR to bytecode | | Q3 (20 Mar) |
+| Week 11 (25 Mar)            | Parsing | | Q4 (27 Mar) |
+| Week 12 (1 Apr)             | Desugaring, the Grumpy source language | | **PA4: IR** (1 Apr) |
+| Week 13 (8 Apr)             | Types and type checking | | Q5 (10 Apr) |
+| Week 14 (15 Apr)            | Register allocation | | **PA5: Desugaring** (15 Apr) |
+| Week 15 (22 Apr)            | Slop | | Q5 (24 Apr) |
+| 29 Apr - 3 May              | FINAL EXAM PERIOD | | |
 
 Assignments are due in Blackboard at 11:59pm unless otherwise specified. **Q0**, **Q1**, etc., denote quizzes in Blackboard, generally due on the Wednesdays of weeks without due programming assignments (PAs).
-
-| Assignment                       | Due Date          |
-|----------------------------------|-------------------|
-| Q0                               | 16 Jan (W)        |
-| **PA0: Intro. to Rust**          | 23 Jan (W)        |
-| **PA1: Assembler**               |  8 Feb (F)        | 
-| Q1                               | 13 Feb (W)        |
-| **PA2: GrumpyVM**                | 20 Feb (W)        |
-| Q2                               | 27 Feb (W)        | 
-| **PA3: GC+Peephole**             |  6 Mar (W)        |
-| Q3                               | 13 Mar (W)        |
-| **PA4: Compiling GrumpyIR**      |  1 Apr (M)        |
-| Q4                               | 10 Apr (W)        | 
-| **PA5: Desugaring**              | 12 Apr (F)        |
-| Q5                               | 17 Apr (W)        |
-| **PA6: Types**                   | 22 Apr (M)        |
 
 ## Homework and Collaboration Policies
 

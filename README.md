@@ -4,7 +4,7 @@
 
 An upper-level course for CS majors on formal languages theory and compilers. 
 
-Topics (subject to revision): regular expressions; finite automata; context-free grammars; predictive parsing; LR parsing; abstract syntax; type systems and type-checking; stack layout and activation records; intermediate representations; control-flow graphs; static-single assignment (SSA) form; dataflow/liveness analysis; register allocation; garbage collection/runtimes; the LLVM compiler infrastructure. Over the course of the semester, students will implement a full functioning compiler for a small imperative programming language, targeting LLVM. The course involves a significant amount of programming.
+Topics (subject to revision): regular expressions; finite automata; context-free grammars; predictive parsing; LR parsing; abstract syntax; type systems and type-checking; stack layout and activation records; intermediate representations; control-flow graphs; dataflow/liveness analysis; register allocation; garbage collection/runtimes; virtual machines; assemblers. Over the course of the semester, students will implement a full functioning compiler for a small programming language, targeting a bespoke virtual machine. The course involves significant programming.
 
 |                       |         Details      |
 |-----------------------|----------------------|

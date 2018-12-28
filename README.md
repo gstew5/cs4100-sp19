@@ -47,7 +47,7 @@ The schedule is subject to revision.
 | Week                        | Topic                                 | Reading                        | Assignment |
 |-----------------------------|---------------------------------------|--------------------------------|------------|
 | Week 1 (14 Jan)             | Intro. to the course, compilers, Rust | [The Rust Book](https://doc.rust-lang.org/book/index.html) 1-3 | Q0 (16 Jan) |
-| Week 2 (21 Jan)             | Rust contd. | [The Rust Book](https://doc.rust-lang.org/book/index.html) 4-6, 8 | [PA0: Intro. to Rust](pa/0.md) (23 Jan) |
+| Week 2 (21 Jan)             | Rust contd. | [The Rust Book](https://doc.rust-lang.org/book/index.html) 4-6, 8 | [PA0: Intro. to Rust](pa/0.md) (25 Jan) |
 | Week 3 (28 Jan)             | NO CLASS (Stewart away) | | |
 | Week 4 (4 Feb)              | Virtual machines, bytecode, assemblers | | Q1 (6 Feb) |
 | Week 5 (11 Feb)             | Regular expressions, finite automata, lexers | Appel 2 | **PA1: Assembler** (13 Feb) |

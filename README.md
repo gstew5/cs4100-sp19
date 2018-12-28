@@ -16,7 +16,11 @@ Topics (subject to revision): regular expressions; finite automata; context-free
 
 ## Texbook
 
-TBD
+There's no one textbook that covers everything we'll be talking about in this course. Instead, I'll assign readings each week from a variety of different sources:
+
+* [Modern Compiler Implementation in ML, Appel](http://proquest.safaribooksonline.com.proxy.ohiolink.edu:9099/book/software-engineering-and-development/9781107263826), available for free through the Ohio University library
+* [The Rust Book](https://doc.rust-lang.org/book/index.html)
+* [Crafting Interpreters, Nystrom](http://www.craftinginterpreters.com/contents.html)
 
 ## Course Difficulty
 

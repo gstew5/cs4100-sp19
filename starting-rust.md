@@ -22,7 +22,7 @@ This step will take a few minutes (it installs the Rust compiler, the package ma
 
 # Accessing Rust Documentation
 
-`rustup` installs an offline version of the Rust Book. To access it, run `rustup doc --book` to load the documentation in your browser. You can access the Rust documentation online at [https://doc.rust-lang.org/](https://doc.rust-lang.org/).
+`rustup` installs an offline version of the Rust Book. To access it, run `rustup doc --book`. You can access the Rust documentation online at [https://doc.rust-lang.org/](https://doc.rust-lang.org/).
 
 # Setting up Your Editor
 

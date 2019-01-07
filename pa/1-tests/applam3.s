@@ -13,7 +13,7 @@ alloc
 store 2
 var 2
 push 0
-push L_L9
+push _L9
 set
 var 2
 store 5
@@ -41,14 +41,14 @@ pop
 pop
 pop
 ret
-L_L12:
+_L12:
 var 1
 var 0
 push 1
 get
 binary +
 ret
-L_L9:
+_L9:
 push undef
 push 2
 push undef
@@ -56,7 +56,7 @@ alloc
 store 4
 var 4
 push 0
-push L_L12
+push _L12
 set
 var 4
 push 1

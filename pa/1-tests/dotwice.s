@@ -14,7 +14,7 @@ alloc
 store 2
 var 2
 push 0
-push L_L14
+push _L14
 set
 var 2
 store 6
@@ -27,7 +27,7 @@ alloc
 store 3
 var 3
 push 0
-push L_L24
+push _L24
 set
 var 3
 var 4
@@ -51,7 +51,7 @@ pop
 pop
 pop
 ret
-L_L17:
+_L17:
 push undef
 push undef
 var 0
@@ -80,7 +80,7 @@ call
 store 4
 pop
 ret
-L_L14:
+_L14:
 push undef
 push 3
 push undef
@@ -88,7 +88,7 @@ alloc
 store 4
 var 4
 push 0
-push L_L17
+push _L17
 set
 var 4
 push 2
@@ -101,7 +101,7 @@ set
 var 4
 store 4
 ret
-L_L24:
+_L24:
 var 1
 push 1
 binary +

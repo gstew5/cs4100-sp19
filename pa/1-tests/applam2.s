@@ -14,7 +14,7 @@ alloc
 store 2
 var 2
 push 0
-push L_L6
+push _L6
 set
 var 2
 push 1
@@ -34,7 +34,7 @@ store 2
 pop
 pop
 ret
-L_L6:
+_L6:
 var 0
 push 1
 get

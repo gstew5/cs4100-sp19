@@ -10,7 +10,7 @@ alloc
 store 2
 var 2
 push 0
-push L_L8
+push _L8
 set
 var 2
 push Lf
@@ -44,7 +44,7 @@ call
 store 3
 pop
 ret
-L_L8:
+_L8:
 var 1
 push 1
 binary +

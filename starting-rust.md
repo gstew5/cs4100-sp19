@@ -1,20 +1,28 @@
 # Starting with Rust
 
-Rust has multiple toolchains allowing for cross-compilation and switching between the stable, beta, and nightly releases.
-To manage this, they wrote a tool called rustup that allows you to manage your toolchains. This is what we will use to install Rust.
+Rust has multiple toolchains. For this course, we'll be using a specific version (1.31.1). The easiest way to install Rust 1.31.1 is to first install `rustup`, the Rust version management tool. The directions below should work both on Linux and in Windows (assuming you've first installed the [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)).
 
-## Installing Rust
+## Install Rustup
 
-To install rustup, first run the following command: `curl https://sh.rustup.rs -sSf | sh`. Next run: `rustup install stable` to
-install the stable rust toolchain. This step will take a few minutes because it installs the rust compiler, the package manager,
-and adds the rust source (used by racer and other tools your text editor may need for syntax highlighting) and documentation. You
-may want to run `rustup component add rls-preview rust-analysis rust-src` to add full Rust Language Server options (Vim users will
-need this).
+```
+curl https://sh.rustup.rs -sSf | sh
+```
+
+If you're uncomfortable running a script directly from the internet, you can first inspect the script by visiting the site [https://rustup.rs/](https://rustup.rs/).
+
+### Install Rust `1.31.1`
+
+Once you've successfully installed `rustup`, you can install version `1.31.1` of the Rust compiler simply by doing:
+
+```
+rustup install 1.31.1
+```
+
+This step will take a few minutes (it installs the Rust compiler, the package manager, and documentation). You may want to run `rustup component add rls-preview rust-analysis rust-src` to add full Rust Language Server options (Vim users will need this).
 
 ## Accessing Rust Documentation
 
-Rustup installs an offline version of the Rust Book. To access it, just run `rustup doc --book` and it will open your browser to
-the documentation.
+`rustup` installs an offline version of the Rust Book. To access it, run `rustup doc --book` to load the documentation in your browser. You can access the Rust documentation online at [https://doc.rust-lang.org/](https://doc.rust-lang.org/).
 
 ## Setting up Your Editor
 

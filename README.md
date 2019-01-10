@@ -62,7 +62,7 @@ The schedule is subject to revision.
 | Week 10 (18 Mar)            | From IR to bytecode | [Code Generation](doc/codegen.md) | **PA3: GC+Peephole** (20 Mar) |
 | Week 11 (25 Mar)            | Parsing | Appel 3 | Q4 (27 Mar) |
 | Week 12 (1 Apr)             | Desugaring, the Grumpy source language | [Desugaring](doc/desugar.md), [The Grumpy Source Language](doc/source.md) | **PA4: IR** (5 Apr) |
-| Week 13 (8 Apr)             | Types and type checking | TAPL 1, 8-9 | Q5 (10 Apr) |
+| Week 13 (8 Apr)             | Types and type checking | [TAPL 1, 8-9](http://www.library.ohio.edu/ezpauth/redir/athens.php?http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=70966&site=eds-live&scope=site&ebv=EB&ppid=pp_COVER) | Q5 (10 Apr) |
 | Week 14 (15 Apr)            | Register allocation | Appel 11 | Q6 (24 Apr) |
 | Week 15 (22 Apr)            | Slop | | **PA5: Desugaring** (22 Apr) |
 | 29 Apr - 3 May              | **FINAL EXAM PERIOD** | | |

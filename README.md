@@ -104,33 +104,16 @@ If you suspect you may need an accommodation based on the impact of a disability
 
 ## Student Outcomes vs. Course Learning Outcomes
 
-(a) An ability to apply knowledge of computing and mathematics appropriate to the program's student outcomes and to the discipline. Students will be able to:
+1. Analyze a complex computing problem and to apply principles of computing and other relevant disciplines to identify solutions.
 
-* Use pattern-matching to decompose and compute on structured data
-* Use recursion to write functions that manipulate recursive types such as syntax trees
-* Use higher-order functions such as map to manipulate data structures such as lists or trees
-* Construct a finite state machine to recognize a given language
+* Students will be able to appraise the tradeoffs, in terms of asymptotic complexity and precision, of distinct algorithms used in compiler construction (e.g., for garbage collection).
 
-(b) An ability to analyze a problem, and identify and define the computing requirements appropriate to its solution. Students will be able to:
+2. Design, implement, and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline.
 
-* Determine whether a given language is recognizable (e.g., by a RE, DFA, or CFG)
-* Identify the recursive functions appropriate for translating programs into a particular intermediate representation, such as static single assignment form
+* Students will be able to construct a compiler, over the course of a series of course assignments, for a small programming language.
 
-(c) An ability to design, implement, and evaluate a computer-based system, process, component, or program to meet desired needs. Students will be able to:
+6. Apply computer science theory and software development fundamentals to produce computing-based solutions.
 
-* Design, implement, and evaluate against a test suite the correctness of, a lexer and parser for a high-level language
-* Design, implement, and evaluate against a test suite the correctness of, a type-checker for a high-level language
-* Design, implement, and evaluate against a test suite the correctness of, a program transformation mapping expressions to static single assignment form
-* Evaluate the purpose, and correctness of, a program transformation mapping code to static single assignment form
-
-(j) An ability to apply mathematical foundations, algorithmic principles, and computer science theory in the modeling and design of computer-based systems in a way that demonstrates comprehension of the tradeoffs involved in design choices. Students will be able to:
-
-* Apply computer science theory to determine whether a given grammar is parseable by recursive descent
-* Evaluate the tradeoffs, in terms of asymptotic complexity, of distinct garbage collection algorithms
-* Evaluate the tradeoffs in precision vs. computability of static analyses that underlie garbage collection (e.g., for liveness)
-* For a given program, use mathematical foundations such as graph theory to evaluate the feasibility of a particular register-allocation strategy
-
-(k) An ability to apply design and development principles in the construction of software systems of varying complexity. Students will be able to:
-
-* Evaluate the tradeoffs, in terms of design complexity, of a modular vs. monolithic compiler implementation
-* Design and implement a compiler embodying the modular approach
+* Students will be able to determine whether a given language is recognizable (e.g., by a regular expression, deterministic finite automaton, or context-free grammar).
+* Students will be able to construct a finite state machine to recognize a given language.
+* Students will be able to apply computer science theory to determine whether a given grammar is parseable by recursive descent.

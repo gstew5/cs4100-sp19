@@ -19,6 +19,7 @@ Topics (subject to revision): regular expressions; finite automata; context-free
 There's no one textbook that covers everything we'll be talking about in this course. Instead, I'll assign readings each week from the following sources (and maybe others):
 
 * Modern Compiler Implementation in ML, Andrew W. Appel
+* Types and Programming Languages, Benjamin Pierce
 * [The Rust Book](https://doc.rust-lang.org/book/index.html)
 * [Crafting Interpreters, Nystrom](http://www.craftinginterpreters.com/contents.html)
 

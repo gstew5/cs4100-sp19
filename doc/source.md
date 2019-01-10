@@ -1,4 +1,4 @@
-# Grumpy Source Language
+# The Grumpy Source Language (WIP)
 
 ## Syntax
 

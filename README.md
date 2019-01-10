@@ -54,16 +54,16 @@ The schedule is subject to revision.
 | Week 2 (21 Jan)             | Rust contd. | [The Rust Book](https://doc.rust-lang.org/book/index.html) 4-6, 8 | [PA0: Intro. to Rust](pa/0.md) (25 Jan) |
 | Week 3 (28 Jan)             | **NO CLASS (Stewart away)** | | |
 | Week 4 (4 Feb)              | Virtual machines, bytecode, assemblers | Crafting Interpreters [14](http://www.craftinginterpreters.com/chunks-of-bytecode.html), [15](http://www.craftinginterpreters.com/a-virtual-machine.html) | Q1 (6 Feb) |
-| Week 5 (11 Feb)             | Regular expressions, finite automata, lexers | Appel 2 | [PA1: Assembler](pa/1.md) (13 Feb) |
+| Week 5 (11 Feb)             | Regular expressions, finite automata, lexers | [Appel 2](http://proquest.safaribooksonline.com.proxy.ohiolink.edu:9099/book/software-engineering-and-development/9781107263826/part-i-fundamentals-of-compilation/chapter2_html) | [PA1: Assembler](pa/1.md) (13 Feb) |
 | Week 6 (18 Feb)             | From regexps to peephole optimizers | [RE Derivatives](re-derivs.pdf), [QRE Derivatives](alur-qre-derivs.pdf) (supplemental) | Q2 (20 Feb) |
-| Week 7 (25 Feb)             | Runtimes, garbage collection | Appel 13 | [PA2: VM](pa/2.md) (29 Feb) |
+| Week 7 (25 Feb)             | Runtimes, garbage collection | [Appel 13](http://proquest.safaribooksonline.com.proxy.ohiolink.edu:9099/book/software-engineering-and-development/9781107263826/part-i-fundamentals-of-compilation/chapter13_html) | [PA2: VM](pa/2.md) (29 Feb) |
 | Week 8 (4 Mar)              | Intermediate representations | [Intermediate Representations](doc/ir.md) | Q3 (6 Mar) |
 | Week 9 (11 Mar)             | **SPRING BREAK** | |  |
 | Week 10 (18 Mar)            | From IR to bytecode | [Code Generation](doc/codegen.md) | **PA3: GC+Peephole** (20 Mar) |
-| Week 11 (25 Mar)            | Parsing | Appel 3 | Q4 (27 Mar) |
+| Week 11 (25 Mar)            | Parsing | [Appel 3](http://proquest.safaribooksonline.com.proxy.ohiolink.edu:9099/book/software-engineering-and-development/9781107263826/part-i-fundamentals-of-compilation/chapter13_html) | Q4 (27 Mar) |
 | Week 12 (1 Apr)             | Desugaring, the Grumpy source language | [Desugaring](doc/desugar.md), [The Grumpy Source Language](doc/source.md) | **PA4: IR** (5 Apr) |
 | Week 13 (8 Apr)             | Types and type checking | TAPL 1, 8-9 | Q5 (10 Apr) |
-| Week 14 (15 Apr)            | Register allocation | Appel 11 | Q6 (24 Apr) |
+| Week 14 (15 Apr)            | Register allocation | [Appel 11](http://proquest.safaribooksonline.com.proxy.ohiolink.edu:9099/book/software-engineering-and-development/9781107263826/part-i-fundamentals-of-compilation/chapter11_html) | Q6 (24 Apr) |
 | Week 15 (22 Apr)            | Slop | | **PA5: Desugaring** (22 Apr) |
 | 29 Apr - 3 May              | **FINAL EXAM PERIOD** | | |
 

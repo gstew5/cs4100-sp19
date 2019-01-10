@@ -55,7 +55,7 @@ The schedule is subject to revision.
 | Week 3 (28 Jan)             | **NO CLASS (Stewart away)** | | |
 | Week 4 (4 Feb)              | Virtual machines, bytecode, assemblers | Crafting Interpreters [14](http://www.craftinginterpreters.com/chunks-of-bytecode.html), [15](http://www.craftinginterpreters.com/a-virtual-machine.html) | Q1 (6 Feb) |
 | Week 5 (11 Feb)             | Regular expressions, finite automata, lexers | Appel 2 | [PA1: Assembler](pa/1.md) (13 Feb) |
-| Week 6 (18 Feb)             | From regexps to peephole optimizers | [RE Derivatives](re-derivs.pdf); Supplemental: [QRE Derivatives](alur-qre-derivs.pdf) | Q2 (20 Feb) |
+| Week 6 (18 Feb)             | From regexps to peephole optimizers | [RE Derivatives](re-derivs.pdf), [QRE Derivatives](alur-qre-derivs.pdf) (supplemental) | Q2 (20 Feb) |
 | Week 7 (25 Feb)             | Runtimes, garbage collection | Appel 13 | [PA2: VM](pa/2.md) (29 Feb) |
 | Week 8 (4 Mar)              | Intermediate representations | [Intermediate Representations](doc/ir.md) | Q3 (6 Mar) |
 | Week 9 (11 Mar)             | **SPRING BREAK** | |  |

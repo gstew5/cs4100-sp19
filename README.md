@@ -57,11 +57,11 @@ The schedule is subject to revision.
 | Week 5 (11 Feb)             | Regular expressions, finite automata, lexers | Appel 2 | [PA1: Assembler](pa/1.md) (13 Feb) |
 | Week 6 (18 Feb)             | From regexps to peephole optimizers | | Q2 (20 Feb) |
 | Week 7 (25 Feb)             | Runtimes, garbage collection | Appel 13 | [PA2: VM](pa/2.md) (29 Feb) |
-| Week 8 (4 Mar)              | Intermediate representations | | Q3 (6 Mar) |
+| Week 8 (4 Mar)              | Intermediate representations | [Intermediate Representations](doc/ir.md) | Q3 (6 Mar) |
 | Week 9 (11 Mar)             | **SPRING BREAK** | |  |
-| Week 10 (18 Mar)            | From IR to bytecode | | **PA3: GC+Peephole** (20 Mar) |
+| Week 10 (18 Mar)            | From IR to bytecode | [Code Generation](doc/codegen.md) | **PA3: GC+Peephole** (20 Mar) |
 | Week 11 (25 Mar)            | Parsing | Appel 3 | Q4 (27 Mar) |
-| Week 12 (1 Apr)             | Desugaring, the Grumpy source language | | **PA4: IR** (5 Apr) |
+| Week 12 (1 Apr)             | Desugaring, the Grumpy source language | [Desugaring](doc/desugar.md), [The Grumpy Source Language](doc/source.md) | **PA4: IR** (5 Apr) |
 | Week 13 (8 Apr)             | Types and type checking | TAPL 1, 8-9 | Q5 (10 Apr) |
 | Week 14 (15 Apr)            | Register allocation | Appel 11 | Q6 (24 Apr) |
 | Week 15 (22 Apr)            | Slop | | **PA5: Desugaring** (22 Apr) |

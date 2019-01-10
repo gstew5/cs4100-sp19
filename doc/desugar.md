@@ -1,4 +1,4 @@
-# Desugaring
+# Desugaring (WIP)
 
 Desugaring is the process of expressing more complicated language features in terms of simpler ones. In this chapter, we explain why one would want to desugar and how to go about doing it.
 

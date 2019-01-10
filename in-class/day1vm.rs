@@ -58,6 +58,11 @@ struct State {
     rb: RegBank,
 }
 
+fn show_state(s: &State) -> String {
+    format!("pc={}, acc={}, ra={}, rb={}, rc={}",
+            s.pc, s.rb[Reg::ACC], s.rb[Reg::RA], s.rb[Reg::RB], s.rb[Reg::RC])
+}
+
 fn run(s: &mut State, prog: &[Instr]) {
     'mainloop:loop { 
         match prog[s.pc].clone() {
@@ -88,7 +93,7 @@ fn run(s: &mut State, prog: &[Instr]) {
             },
             Instr::Hlt => break 'mainloop
         };
-        println!("state = {:?}, next instr = {:?}", s, prog[s.pc])        
+        println!("{}, next instr = {:?}", show_state(&s), prog[s.pc])        
     }
 }
 

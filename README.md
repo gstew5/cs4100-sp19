@@ -10,9 +10,9 @@ Topics (subject to revision): regular expressions; finite automata; context-free
 |-----------------------|----------------------|
 | **Lecture**           | MWF |
 | **Instructor**        | Gordon Stewart (gstewart@ohio.edu) |
-| **Office Hours**      | TBD |
-| **TA**                | Tim Steinberger |
-| **Lab Hours**         | TBD |
+| **Office Hours**      | M3-5pm, Stocker 355 |
+| **TA**                | Tim Steinberger (ts409415@ohio.edu) |
+| **Lab Hours**         | T3-5pm, Stocker 307 |
 
 ## Texbook
 
@@ -28,9 +28,9 @@ This is a demanding course that requires extensive programming work, in the form
 
 ## Course Structure
 
-The course consists of weekly lectures (MWF), attendance at which is required. To help get you up to speed with the course programming assignments, we'll also hold biweekly lab hours (time TBD). Although attendance at the lab hours is optional, I highly recommend that you attend — at least for the first few weeks of the course. The programming assignments for this course are extensive and time consuming, so be prepared!
+The course consists of weekly lectures (MWF), attendance at which is required. To help get you up to speed with the course programming assignments, we'll also hold biweekly lab hours (Stocker 307, Tuesdays 3-5pm). Although attendance at the lab hours is optional, I highly recommend that you participate — at least for the first few weeks. The programming assignments for this course are extensive and time consuming, so be prepared!
 
-In addition to biweekly homework assignments, there will be a midterm exam (Week 7, approximately 15% of your grade) and a final (approximately 25%). The biweekly homeworks (programming assignments) are worth approximately 40%. We'll have weekly quizzes every Tuesday (with probability 1/3), along with bi-weekly offline Blackboard quizzes (total 10%). You get an additional 10% for free, just for signing up for the course.
+In addition to biweekly homework assignments, there will be a midterm exam (Week 7, approximately 15% of your grade) and a final (approximately 25%). The biweekly homeworks (programming assignments) are worth approximately 40%. We'll have weekly in-class quizzes every Friday with probability 1/2, along with bi-weekly offline Blackboard quizzes (total 10%). You get an additional 10% for free, just for signing up for the course.
 
 ### Grade Breakdown
 

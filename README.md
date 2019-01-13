@@ -31,7 +31,7 @@ This is a demanding course that requires extensive programming work, in the form
 
 The course consists of weekly lectures (MWF), attendance at which is required. To help get you up to speed with the course programming assignments, we'll also hold biweekly lab hours (Stocker 307, Tuesdays 3-5pm). Although attendance at the lab hours is optional, I highly recommend that you participate — at least for the first few weeks. The programming assignments for this course are extensive and time consuming, so be prepared!
 
-In addition to biweekly homework assignments, there will be a midterm exam (Week 7, approximately 15% of your grade) and a final (approximately 25%). The biweekly homeworks (programming assignments) are worth approximately 40%. We'll have weekly in-class quizzes every Friday with probability 1/2, along with bi-weekly offline Blackboard quizzes (total 10%). You get an additional 10% for free, just for signing up for the course.
+In addition to biweekly homework assignments, there will be a midterm exam (Week 8, approximately 15% of your grade) and a final (approximately 25%). The biweekly homeworks (programming assignments) are worth approximately 40%. We'll have weekly in-class quizzes every Friday with probability 1/2, along with bi-weekly offline Blackboard quizzes (total 10%). You get an additional 10% for free, just for signing up for the course.
 
 ### Grade Breakdown
 
@@ -58,7 +58,7 @@ The schedule is subject to revision.
 | Week 5 (11 Feb)             | Regular expressions, finite automata, lexers | Appel 2 | [PA1: Assembler](pa/1.md) (13 Feb) |
 | Week 6 (18 Feb)             | From regexps to peephole optimizers | [RE Derivatives](re-derivs.pdf), [QRE Derivatives](alur-qre-derivs.pdf) (supplemental) | Q2 (20 Feb) |
 | Week 7 (25 Feb)             | Runtimes, garbage collection | Appel 13 | [PA2: VM](pa/2.md) (29 Feb) |
-| Week 8 (4 Mar)              | Intermediate representations | [Intermediate Representations](doc/ir.md) | Q3 (6 Mar) |
+| Week 8 (4 Mar)              | Intermediate representations | [Intermediate Representations](doc/ir.md) | Q3 (4 Mar), Midterm Exam (6 Mar, tentative) |
 | Week 9 (11 Mar)             | **SPRING BREAK** | |  |
 | Week 10 (18 Mar)            | From IR to bytecode | [Code Generation](doc/codegen.md) | **PA3: GC+Peephole** (20 Mar) |
 | Week 11 (25 Mar)            | Parsing | Appel 3 | Q4 (27 Mar) |

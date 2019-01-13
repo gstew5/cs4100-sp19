@@ -2,6 +2,8 @@
 
 ## Spring 2019
 
+Course website: [https://github.com/gstew5/cs4100-sp19](https://github.com/gstew5/cs4100-sp19)
+
 An upper-level course for CS majors on formal languages theory and compilers. 
 
 Topics (subject to revision): regular expressions; finite automata; context-free grammars; predictive parsing; LR parsing; abstract syntax; type systems and type-checking; stack layout and activation records; intermediate representations; control-flow graphs; dataflow/liveness analysis; register allocation; garbage collection/runtimes; virtual machines; assemblers. Over the course of the semester, students will implement a full functioning compiler for a small programming language, targeting a bespoke virtual machine. The course requires a significant amount of programming.

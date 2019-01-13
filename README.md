@@ -8,7 +8,7 @@ Topics (subject to revision): regular expressions; finite automata; context-free
 
 |                       |         Details      |
 |-----------------------|----------------------|
-| **Lecture**           | MWF |
+| **Lecture**           | MWF 12:55-1:50pm Porter 105 |
 | **Instructor**        | Gordon Stewart (gstewart@ohio.edu) |
 | **Office Hours**      | M3-5pm, Stocker 355 |
 | **TA**                | Tim Steinberger (ts409415@ohio.edu) |

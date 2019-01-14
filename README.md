@@ -15,7 +15,7 @@ Topics (subject to revision): regular expressions; finite automata; context-free
 | **Office Hours**      | M3-5pm, Stocker 355 |
 | **TA**                | Tim Steinberger (ts409415@ohio.edu) |
 | **Lab Hours**         | T3-5pm, Stocker 307 |
-| **Piazza Page**       |  |
+| **Piazza Page**       | [https://piazza.com/ohio/spring2019/cs41005100/home](https://piazza.com/ohio/spring2019/cs41005100/home) |
 
 ## Texbook
 

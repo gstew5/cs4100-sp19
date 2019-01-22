@@ -114,14 +114,12 @@ GrumpyVM's `mainloop` performs the following operations in order:
 2. Increment the `pc`.
 3. Check whether `pc - 1` is greater than or equal to the program length; if so, raise an error.
 4. Execute the instruction at address `pc - 1`.
-5. Increment `counter`.
-6. Loop to 1.
+5. Loop to 1.
 
 We implement this execution loop as the Rust function `exec` that takes as its second argument a mutable pointer to the VM state. The first argument, `d: &Debug`, is an immutable `DEBUG` flag.
 
 ```
 pub fn exec(d: &Debug, s: &mut State) {
-    let mut counter = 0;
     'mainloop:loop {
         if s.halt { break 'mainloop }
         let pc = s.pc;
@@ -140,6 +138,63 @@ pub fn exec(d: &Debug, s: &mut State) {
     }
 }
 ```
+
+## Instruction Bytecode Format
+
+An implementation of the GrumpyVM operates on a stream of variable-size bytecode instructions encoded according to the tables below.
+
+### Bytecode Representation of Values
+
+GrumpyVM uses the following variable-size representation of values.
+
+| Value | Bytecode |
+| ----- | -------- | 
+| Vunit | 0b00000000 | 
+| Vi32(i:i32) | 0b00000001 byte3(i) byte2(i) byte1(i) byte0(i) (big-endian, two's complement) | 
+| Vbool(true) | 0b00000010 | 
+| Vbool(false)| 0b00000011 |
+| Vloc(i:u32) | 0b00000100 byte3(i) byte2(i) byte1(i) byte0(i) (big-endian) |
+| Vundef      | 0b00000101 |
+
+The other value types (`Vsize`, `Vaddr`) may not appear in user programs. They therefore have no binary representation.
+
+### Bytecode Representation of Unary Operators
+
+| Unary Operator | Bytecode | 
+| -------------- | -------- | 
+| Neg            | 0b00000000 |
+
+### Bytecode Representation of Binary Operators 
+
+| Binary Operator | Bytecode   | 
+| --------------- | ---------- | 
+| Add             | 0b00000000 |
+| Mul             | 0b00000001 |
+| Sub             | 0b00000010 |
+| Div             | 0b00000011 |
+| Lt              | 0b00000100 |
+| Eq              | 0b00000101 |
+
+### Bytecode Representation of Instructions 
+
+| Instruction | Bytecode | 
+| ----------- | -------- | 
+| Push(v)     | 0b00000000 Bytecode(v) | 
+| Pop         | 0b00000001 |
+| Peek(i:u32) | 0b00000010 byte3(i) byte2(i) byte1(i) byte0(i) (big-endian) |
+| Unary(u)    | 0b00000011 Bytecode(u) |
+| Binary(b)   | 0b00000100 Bytecode(b) | 
+| Swap        | 0b00000101 |
+| Alloc       | 0b00000110 | 
+| Set         | 0b00000111 | 
+| Get         | 0b00001000 | 
+| Var(i:u32)  | 0b00001001 byte3(i) byte2(i) byte1(i) byte0(i) (big-endian) |
+| Store(i:u32)| 0b00001010 byte3(i) byte2(i) byte1(i) byte0(i) (big-endian) |
+| SetFrame(i:u32)| 0b00001011 byte3(i) byte2(i) byte1(i) byte0(i) (big-endian) |
+| Call        | 0b00001100 |
+| Ret         | 0b00001101 |
+| Branch      | 0b00001110 |
+| Halt        | 0b00001111 |
 
 ## Instructions
 
@@ -463,60 +518,3 @@ Post-state:
 | halt | 
 | ---- | 
 | true | 
-
-## Instruction Bytecode Format
-
-An implementation of the GrumpyVM operates on a stream of variable-size bytecode instructions encoded according to the tables below.
-
-### Bytecode Representation of Values
-
-GrumpyVM uses the following variable-size representation of values.
-
-| Value | Bytecode |
-| ----- | -------- | 
-| Vunit | 0b00000000 | 
-| Vi32(i:i32) | 0b00000001 byte3(i) byte2(i) byte1(i) byte0(i) (big-endian, two's complement) | 
-| Vbool(true) | 0b00000010 | 
-| Vbool(false)| 0b00000011 |
-| Vloc(i:u32) | 0b00000100 byte3(i) byte2(i) byte1(i) byte0(i) (big-endian) |
-| Vundef      | 0b00000101 |
-
-The other value types (`Vsize`, `Vaddr`) may not appear in user programs. They therefore have no binary representation.
-
-### Bytecode Representation of Unary Operators
-
-| Unary Operator | Bytecode | 
-| -------------- | -------- | 
-| Neg            | 0b00000000 |
-
-### Bytecode Representation of Binary Operators 
-
-| Binary Operator | Bytecode   | 
-| --------------- | ---------- | 
-| Add             | 0b00000000 |
-| Mul             | 0b00000001 |
-| Sub             | 0b00000010 |
-| Div             | 0b00000011 |
-| Lt              | 0b00000100 |
-| Eq              | 0b00000101 |
-
-### Bytecode Representation of Instructions 
-
-| Instruction | Bytecode | 
-| ----------- | -------- | 
-| Push(v)     | 0b00000000 Bytecode(v) | 
-| Pop         | 0b00000001 |
-| Peek(i:u32) | 0b00000010 byte3(i) byte2(i) byte1(i) byte0(i) (big-endian) |
-| Unary(u)    | 0b00000011 Bytecode(u) |
-| Binary(b)   | 0b00000100 Bytecode(b) | 
-| Swap        | 0b00000101 |
-| Alloc       | 0b00000110 | 
-| Set         | 0b00000111 | 
-| Get         | 0b00001000 | 
-| Var(i:u32)  | 0b00001001 byte3(i) byte2(i) byte1(i) byte0(i) (big-endian) |
-| Store(i:u32)| 0b00001010 byte3(i) byte2(i) byte1(i) byte0(i) (big-endian) |
-| SetFrame(i:u32)| 0b00001011 byte3(i) byte2(i) byte1(i) byte0(i) (big-endian) |
-| Call        | 0b00001100 |
-| Ret         | 0b00001101 |
-| Branch      | 0b00001110 |
-| Halt        | 0b00001111 |

@@ -14,7 +14,7 @@ Topics (subject to revision): regular expressions; finite automata; context-free
 | **Instructor**        | Gordon Stewart (gstewart@ohio.edu) |
 | **Office Hours**      | M4-5pm, W11am-12pm, Stocker 355 |
 | **TA**                | Tim Steinberger (ts409415@ohio.edu) |
-| **Lab Hours**         | T3-5pm, Stocker 307 |
+| **Lab Hours**         | T3-5pm, Stocker 190 |
 | **Piazza Page**       | [https://piazza.com/ohio/spring2019/cs41005100/home](https://piazza.com/ohio/spring2019/cs41005100/home) |
 
 ## Texbook

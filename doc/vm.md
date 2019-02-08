@@ -354,7 +354,7 @@ Post-state:
 
 ### Set
 
-Store value `v` at heap address `base+idx`, returning on the top of the stack `Vunit`. Raise an error if `idx` is out of range for the array at address `base`.
+Store value `v` at heap address `base+idx`. Raise an error if `idx` is out of range for the array at address `base`.
 
 Pre-state: 
 
@@ -367,8 +367,8 @@ Post-state:
 
 | stack | heap |
 | ----- | ---- |
-| ... Vunit STACK_TOP | ... v ... HEAP_END |
-|                     | ... ^base+idx ... HEAP_END |
+| ... STACK_TOP | ... v ... HEAP_END |
+|               | ... ^base+idx ... HEAP_END |
 
 ### Get
 

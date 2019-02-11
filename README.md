@@ -59,11 +59,11 @@ The schedule is subject to revision.
 | Week 3 (28 Jan)             | **NO CLASS M/W (Stewart away)** Fri: Intro. to PA1 (Tim) | | |
 | Week 4 (4 Feb)              | Virtual machines, bytecode, assemblers | Crafting Interpreters [14](http://www.craftinginterpreters.com/chunks-of-bytecode.html), [15](http://www.craftinginterpreters.com/a-virtual-machine.html) | Q1 (6 Feb) |
 | Week 5 (11 Feb)             | Garbage collection, concurrency | Appel 13 | [PA1: Assembler](pa/1.md) (13 Feb) |
-| Week 6 (18 Feb)             | Intermediate representations and code generation | [Intermediate Representations](doc/ir.md), [Code Generation](doc/codegen.md) | Q2 (20 Feb) |
+| Week 6 (18 Feb)             | Intermediate representations, code generation | [Intermediate Representations](doc/ir.md), [Code Generation](doc/codegen.md) | Q2 (20 Feb) |
 | Week 7 (25 Feb)             | Regular languages, regular expressions | Appel 2 (through 2.2), [RE Derivatives](re-derivs.pdf) | [PA2: VM](pa/2.md) (1 Mar) |
 | Week 8 (4 Mar)              | DFAs, NFAs, lexers and lexer generators | Appel 2.3-2.5 | Q3 (4 Mar), Midterm Exam (6 Mar, tentative) |
 | Week 9 (11 Mar)             | **SPRING BREAK** | |  |
-| Week 10 (18 Mar)            | Context-free languages, pushdown automata | Appel 3 | **PA3: GC+Peephole** (20 Mar) |
+| Week 10 (18 Mar)            | Context-free languages, pushdown automata | Appel 3 | **PA3: Runtime** (20 Mar) |
 | Week 11 (25 Mar)            | Recursive descent and predictive parsing, parser generators | | Q4 (27 Mar) |
 | Week 12 (1 Apr)             | Control-flow graphs, dominators | Appel 7.1, Appel 18.1 | **PA4: IR** (5 Apr) |
 | Week 13 (8 Apr)             | Dataflow/liveness analysis | Appel 10.1 | Q5 (10 Apr) |

@@ -58,17 +58,17 @@ The schedule is subject to revision.
 | Week 2 (21 Jan)             | Rust contd. | [The Rust Book](https://doc.rust-lang.org/book/index.html) 4-6, 8 | [PA0: Intro. to Rust](pa/0.md) (25 Jan) |
 | Week 3 (28 Jan)             | **NO CLASS M/W (Stewart away)** Fri: Intro. to PA1 (Tim) | | |
 | Week 4 (4 Feb)              | Virtual machines, bytecode, assemblers | Crafting Interpreters [14](http://www.craftinginterpreters.com/chunks-of-bytecode.html), [15](http://www.craftinginterpreters.com/a-virtual-machine.html) | Q1 (6 Feb) |
-| Week 5 (11 Feb)             | Regular expressions, finite automata, lexers | Appel 2 | [PA1: Assembler](pa/1.md) (13 Feb) |
-| Week 6 (18 Feb)             | From regexps to peephole optimizers | [RE Derivatives](re-derivs.pdf), [QRE Derivatives](alur-qre-derivs.pdf) (supplemental) | Q2 (20 Feb) |
-| Week 7 (25 Feb)             | Runtimes, garbage collection | Appel 13 | [PA2: VM](pa/2.md) (1 Mar) |
-| Week 8 (4 Mar)              | Intermediate representations | [Intermediate Representations](doc/ir.md) | Q3 (4 Mar), Midterm Exam (6 Mar, tentative) |
+| Week 5 (11 Feb)             | Garbage collection, concurrency | Appel 13 | [PA1: Assembler](pa/1.md) (13 Feb) |
+| Week 6 (18 Feb)             | Intermediate representations and code generation | [Intermediate Representations](doc/ir.md), [Code Generation](doc/codegen.md) | Q2 (20 Feb) |
+| Week 7 (25 Feb)             | Regular languages, regular expressions | Appel 2 (through 2.2), [RE Derivatives](re-derivs.pdf) | [PA2: VM](pa/2.md) (1 Mar) |
+| Week 8 (4 Mar)              | DFAs, NFAs, lexers and lexer generators | Appel 2.3-2.5 | Q3 (4 Mar), Midterm Exam (6 Mar, tentative) |
 | Week 9 (11 Mar)             | **SPRING BREAK** | |  |
-| Week 10 (18 Mar)            | From IR to bytecode | [Code Generation](doc/codegen.md) | **PA3: GC+Peephole** (20 Mar) |
-| Week 11 (25 Mar)            | Parsing | Appel 3 | Q4 (27 Mar) |
-| Week 12 (1 Apr)             | Desugaring, the Grumpy source language | [Desugaring](doc/desugar.md), [The Grumpy Source Language](doc/source.md) | **PA4: IR** (5 Apr) |
-| Week 13 (8 Apr)             | Types and type checking | [TAPL 1, 8-9](http://www.library.ohio.edu/ezpauth/redir/athens.php?http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=70966&site=eds-live&scope=site&ebv=EB&ppid=pp_COVER) | Q5 (10 Apr) |
-| Week 14 (15 Apr)            | Register allocation | Appel 11 | Q6 (24 Apr) |
-| Week 15 (22 Apr)            | Slop | | **PA5: Desugaring** (22 Apr) |
+| Week 10 (18 Mar)            | Context-free languages, pushdown automata | Appel 3 | **PA3: GC+Peephole** (20 Mar) |
+| Week 11 (25 Mar)            | Recursive descent and predictive parsing, parser generators | | Q4 (27 Mar) |
+| Week 12 (1 Apr)             | Control-flow graphs, dominators | Appel 7.1, Appel 18.1 | **PA4: IR** (5 Apr) |
+| Week 13 (8 Apr)             | Dataflow/liveness analysis | Appel 10.1 | Q5 (10 Apr) |
+| Week 14 (15 Apr)            | Dataflow/liveness analysis continued | Appel 19 (up to but not including 19.1) | Q6 (24 Apr) |
+| Week 15 (22 Apr)            | Register allocation | Appel 11 | **PA5: Desugaring** (22 Apr) |
 | 29 Apr - 3 May              | **FINAL EXAM PERIOD** | | |
 
 Assignments are due in Blackboard at 11:59pm unless otherwise specified. **Q0**, **Q1**, etc., denote quizzes in Blackboard, generally due on the Wednesdays of weeks without due programming assignments (PAs).

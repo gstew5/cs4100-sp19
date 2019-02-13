@@ -141,7 +141,7 @@ pub fn exec(d: &Debug, s: &mut State) {
 
 ## Instruction Bytecode Format
 
-An implementation of the GrumpyVM operates on a stream of variable-size bytecode instructions encoded according to the tables below.
+An implementation of the GrumpyVM operates on a stream of variable-size bytecode instructions encoded according to the tables below. Every GrumpyVM bytecode file begins with a big-endian u32 encoding of the number of instructions in the program, followed by the binary encoding of each instruction as given below.
 
 ### Bytecode Representation of Values
 

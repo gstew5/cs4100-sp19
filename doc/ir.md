@@ -110,4 +110,12 @@ fib(n | n > 1) = fib(n-1) + fib(n-2)
 
 ## Compiling IR to Assembly
 
-The most straightforward way to generate assembly from IR is to define a recursive function `C[e]` that compiles an IR expression `e` to a list of assembly instructions. As a correctness invariant, we'll require that `C[e]` produce a list of assembly instructions that, when run, leaves the stack unchanged *except* for storing `e`'s result on top.
+A straightforward way to generate assembly from IR is to define a recursive function `C[ e ]` that compiles an IR expression `e` to a list of assembly instructions. As a correctness invariant, we'll require that `C[ e ]` produce a list of assembly instructions that, when run, leaves the stack unchanged *except* for storing `e`'s result on top.
+
+For example, to compile the expression `(neg false)`, one might first generate an instruction for pushing `false` onto the stack, then a second instruction `Unop(Neg)` for negating `false` by replacing it on top of the stack with true. In general, the compilation function for the unary expression case could be defined as:
+
+```
+C[ (unop e) ] = 
+  let instrs = C[ e ]; 
+  instrs.push(Unop(Neg))
+```

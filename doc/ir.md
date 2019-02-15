@@ -68,7 +68,7 @@ ty ::= i32                //32-bit integers
        (array ty)         //Arrays of values of type ty
 ```
 
-Finally, programs compose sequences of functions (0 or more) with a "main" expression `e`, the result of which is the result of the whole program. The function definitions must be separated from the body by a semicolon (`;`).
+Finally, programs compose sequences of functions (0 or more) with a "main" expression `e`, the result of which is the result of the whole program. The function definitions must be separated from the body by a `%`.
 
 ```
 Programs
@@ -82,7 +82,8 @@ Here's an example GrumpyIR program that allocates an array of size `100` (with e
 ```
 (fun f (x (array i32)) -> i32 
   (seq (set x 23 42) 
-       (get x 23))); 
+       (get x 23)))
+%
 (f (alloc 100 7))
 ```
 

@@ -75,7 +75,7 @@ Programs
  prog ::= fn1 fn2 ... fnM ; e                      
 ```
 
-## Example 1
+### Example 1
 
 Here's an example GrumpyIR program that allocates an array of size `100` (with each index initialized to `7`), updates the array at index `23` to equal `42`, then returns the value at index `23`, which should equal `42`.
 
@@ -86,9 +86,9 @@ Here's an example GrumpyIR program that allocates an array of size `100` (with e
 (f (alloc 100 7))
 ```
 
-## Example 2
+### Example 2
 
-Here's a slightly more interesting example program:
+Here's a slightly larger example program:
 
 ```
 (fun fib (x i32) -> i32
@@ -105,3 +105,7 @@ fib(0) = 1
 fib(1) = 1
 fib(n | n > 1) = fib(n-1) + fib(n-2)
 ```
+
+## Compiling IR to Assembly
+
+The most straightforward way to generate assembly from IR is to define a recursive function `C[e]` that compiles an IR expression `e` to a list of assembly instructions. As a correctness invariant, we'll require that `C[e]` produce a list of assembly instructions that, when run, leaves the stack unchanged *except* for storing `e`'s result on top.

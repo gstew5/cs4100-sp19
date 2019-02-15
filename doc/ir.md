@@ -94,7 +94,8 @@ Here's a slightly larger example program:
 (fun fib (x i32) -> i32
      (cond (== x 0) 1
            (cond (== x 1) 1
-	   	 (+ (fib (- x 1)) (fib (- x 2))))));
+	   	 (+ (fib (- x 1)) (fib (- x 2))))))		 
+%
 (fib 20)
 ```
 

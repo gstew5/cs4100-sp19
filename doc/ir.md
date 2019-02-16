@@ -124,6 +124,6 @@ where `u` is an arbitrary unary expression and `e` is its argument expression. W
 
 ### Compilation Invariants
 
-What is meant, precisely, by *compilation invariant*? An invariant of a compilation function like `C[ e ]` is a property that `C[ e ]` (1) must *guarantee* but also (2) which `C[ e ]` may *assume* of -- for example -- recursive calls to compile subexpressions of `e`.
+What is meant, precisely, by *compilation invariant*? An invariant of a compilation function like `C[ e ]` is a property that `C` (1) must *guarantee* but also (2) which `C` may *assume*, for example of recursive calls to compile subexpressions of `e`.
 
-In the compilation of unary expressions `C[ (u e) ]` above, we assumed that the recursive call to `C[ e ]` returned a list of instructions that satisfied our **compilation invariant** (it leaves the stack unchanged except for pushing `e`'s result). But we also must guarantee that the overall list of instructions `instrs.push(Unop(u))` satisfies the invariant (in this case it does because `Unop(u)` pops `e`'s result, then pushes the negated Boolean value).
+In the compilation of unary expressions `C[ (u e) ]` above, we assumed that the recursive call to `C[ e ]` returned a list of instructions that satisfied our **compilation invariant** (it leaves the stack unchanged except for pushing `e`'s result). But to respect the invariant, we also must guarantee that the overall list of instructions `instrs.push(Unop(u))` satisfies the invariant (in this case it does because `Unop(u)` pops `e`'s result, then pushes the negated Boolean value).

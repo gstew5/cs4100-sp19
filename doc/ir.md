@@ -110,12 +110,20 @@ fib(n | n > 1) = fib(n-1) + fib(n-2)
 
 ## Compiling IR to Assembly
 
-A straightforward way to generate assembly from IR is to define a recursive function `C[ e ]` that compiles an IR expression `e` to a list of assembly instructions. As a correctness invariant, we'll require that `C[ e ]` produce a list of assembly instructions that, when run, leaves the stack unchanged *except* for storing `e`'s result on top.
+A straightforward way to generate assembly from IR is to define a recursive function `C[ e ]` that compiles an IR expression `e` to a list of assembly instructions. As a **compilation invariant**, we'll require that `C[ e ]` produce a list of assembly instructions that, when run, leaves the stack unchanged *except* for storing `e`'s result on top.
 
-For example, to compile the expression `(neg false)`, one might first generate an instruction for pushing `false` onto the stack, then a second instruction `Unop(Neg)` for negating `false` by replacing it on top of the stack with true. In general, the compilation function for the unary expression case could be defined as:
+For example, to compile the expression `(neg false)`, one might first generate an instruction for pushing `false` onto the stack, then a second instruction `Unop(Neg)` for negating `false`, replacing it on top of the stack with `true`. In general, the compilation function for the unary expression case can be defined as:
 
 ```
-C[ (unop e) ] = 
+C[ (u e) ] = 
   let instrs = C[ e ]; 
-  instrs.push(Unop(Neg))
+  instrs.push(Unop(u))
 ```
+
+where `u` is an arbitrary unary expression and `e` is its argument expression. We first recursively generate a list of instructions for `e` (`let instrs = C[ e ]`), then produce as the result of `C[ (u e) ]` the new instruction list that first performs `instrs` (leaving `e`'s result on top of the stack by our **compilation invariant** for `C`), then finally performs `Unop(u)`.  
+
+### Compilation Invariants
+
+What is meant, precisely, by *compilation invariant*? An invariant of a compilation function like `C[ e ]` is a property that `C[ e ]` (1) must *guarantee* but also (2) which `C[ e ]` may *assume* of -- for example -- recursive calls to compile subexpressions of `e`.
+
+In the compilation of unary expressions `C[ (u e) ]` above, we assumed that the recursive call to `C[ e ]` returned a list of instructions that satisfied our **compilation invariant** (it leaves the stack unchanged except for pushing `e`'s result). But we also must guarantee that the overall list of instructions `instrs.push(Unop(u))` satisfies the invariant (in this case it does because `Unop(u)` pops `e`'s result, then pushes the negated Boolean value).

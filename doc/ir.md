@@ -110,7 +110,7 @@ fib(n | n > 1) = fib(n-1) + fib(n-2)
 
 ## Compiling IR to Assembly
 
-We'll generate assembly from IR by definining a recursive function, `C[ e ]`, that maps expressions to lists of assembly instructions. To make our lives easier as we define `C`, we'll enforce as a **compilation invariant** (about which more below) that the list of instructions produced by `C[ e ]` leaves the stack unchanged *except* for storing `e`'s result on top.
+We'll generate assembly from IR by defining a recursive function, `C[ e ]`, that maps expressions to lists of assembly instructions. To make our lives easier as we define `C`, we'll enforce as a **compilation invariant** (about which more below) that the list of instructions produced by `C[ e ]` leaves the stack unchanged *except* for storing `e`'s result on top.
 
 ### Example: Unary Expressions
 

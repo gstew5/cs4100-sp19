@@ -110,20 +110,35 @@ fib(n | n > 1) = fib(n-1) + fib(n-2)
 
 ## Compiling IR to Assembly
 
-A straightforward way to generate assembly from IR is to define a recursive function `C[ e ]` that compiles an IR expression `e` to a list of assembly instructions. As a **compilation invariant**, we'll require that `C[ e ]` produce a list of assembly instructions that, when run, leaves the stack unchanged *except* for storing `e`'s result on top.
+A straightforward way to generate assembly from IR is to define a recursive function `C[ e ]` that compiles an IR expression `e` to a list of assembly instructions `instrs` that faithfully executes `e`. To make our lives easier as we define `C`, we'll enforce as a **compilation invariant** that `instrs`, when run, leaves the stack unchanged *except* for storing `e`'s result on top.
+
+### Example: Unary Expressions
 
 For example, to compile the expression `(neg false)`, one might first generate an instruction for pushing `false` onto the stack, then a second instruction `Unop(Neg)` for negating `false`, replacing it on top of the stack with `true`. In general, the compilation function for the unary expression case can be defined as:
 
 ```
 C[ (u e) ] = 
   let instrs = C[ e ]; 
-  instrs.push(Unop(u))
+  instrs ++ [Unop(u)]
 ```
 
-where `u` is an arbitrary unary expression and `e` is its argument expression. We first recursively generate a list of instructions for `e` (`let instrs = C[ e ]`), then produce as the result of `C[ (u e) ]` the new instruction list that first performs `instrs` (leaving `e`'s result on top of the stack by our **compilation invariant** for `C`), then finally performs `Unop(u)`.  
+where `u` is an arbitrary unary expression and `e` is its argument expression. We first recursively generate a list of instructions for `e` (`let instrs = C[ e ]`), then produce as the result of `C[ (u e) ]` the new instruction list that first performs `instrs` (leaving `e`'s result on top of the stack by our **compilation invariant** for `C`), then finally performs `Unop(u)`. We use the notation `instrs ++ [Unop(u)]` to indicate the instruction list that appends the singleton list `[Unop(u)]` to the end of `instrs`. 
 
 ### Compilation Invariants
 
-What is meant, precisely, by *compilation invariant*? An invariant of a compilation function like `C[ e ]` is a property that `C` (1) must *guarantee* but also (2) which `C` may *assume*, for example of recursive calls to compile subexpressions of `e`.
+Let's talk a bit more about invariants. In general, an invariant is a property `I` that is *preserved* by some function `f(x)`. That is, if `I(x)` (`I` holds of `x`) before the call to `f`, then `I(f(x))` after (`I` holds of `f`'s result). Importantly, `I` need not hold *during* the call to `f`, only before (by assumption) and after `f` terminates. In other words, `f` is free to break the invariant while it's executing but must restore it afterwward.
 
-In the compilation of unary expressions `C[ (u e) ]` above, we assumed that the recursive call to `C[ e ]` returned a list of instructions that satisfied our **compilation invariant** (it leaves the stack unchanged except for pushing `e`'s result). But to respect the invariant, we also must guarantee that the overall list of instructions `instrs.push(Unop(u))` satisfies the invariant (in this case it does because `Unop(u)` pops `e`'s result, then pushes the negated Boolean value).
+An invariant of a compilation function, which we've called a *compilation invariant* above, is a property that the compilation function `C` may *assume*, for example of recursive calls to compile subexpressions of `e`, but also must *guarantee* of its result `C[ e ]`.
+
+For example, in the compilation of unary expressions `C[ (u e) ]` above, we assumed that the recursive call to `C[ e ]` returned a list of instructions that satisfied our **compilation invariant** (it leaves the stack unchanged except for pushing `e`'s result). But to respect the invariant, we also must guarantee that the overall list of instructions `instrs.push(Unop(u))` satisfies the invariant (in this case it does because `Unop(u)` pops `e`'s result, then pushes the negated Boolean value).
+
+### Example: Binary Expressions
+
+Consider, as a second example, the compilation of binary expressions `(b e1 e2)`.
+
+```
+C[ (b e1 e2) ] =
+  let instrs1 = C[ e1 ];
+  let instrs2 = C[ e2 ];
+  instrs1 ++ instrs2 ++ [Binop(b)]
+```

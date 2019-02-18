@@ -142,3 +142,5 @@ C[ (b e1 e2) ] =
   let instrs2 = C[ e2 ];
   instrs1 ++ instrs2 ++ [Binop(b)]
 ```
+
+First we run the instructions for `e1`, then the instructions for `e2`, then perform binary operation `b`. By the **compilation invariant**, `instrs1 ++ instrs2` leaves the stack with `... v1 v2 STACK_TOP` where `v1` and `v2` are `e1`'s and `e2`'s result values respectively. The binary operation instruction `Binop(b)` pops `v2` then `v1`, replacing both values with the result of executing `b` (e.g., `v1 + v2` if `b = Add`). Note that this case, like the unary case of `C`, produces a state that satisfies the compilation invariant:  The original stack is unchanged apart from pushing the result of binary operation `b` applied to `v1` and `v2`.

@@ -372,21 +372,21 @@ Post-state:
 
 ### Get
 
-Push the value contained at heap address `base+idx`. Raise an error if `idx` is out of range for the array at address `base`.
+Push the value contained at heap address `base+idx+1` (element `idx` of the array beginning at `base`). Raise an error if `idx` is out of range for the array at address `base`.
 
 Pre-state: 
 
 | stack | heap |
 | ----- | ---- |
-| ... Vaddr(base) Vi32(idx) STACK_TOP | ... v ... HEAP_END |
+| ... Vaddr(base) Vi32(idx) STACK_TOP | ... Vi32(size) v1 v2 ... v_size ... HEAP_END |
 |                                     | ... ^base+idx ... HEAP_END |
 
 Post-state: 
 
 | stack | heap |
 | ----- | ---- |
-| ... v STACK_TOP | ... v ... HEAP_END |
-|                 | ... ^base+idx ... HEAP_END |
+| ... v1 STACK_TOP | ... Vi32(size) v1 v2 ... v_size ... HEAP_END |
+|                  | ... ^base+idx ... HEAP_END |
 
 ### Var(i:u32)
 

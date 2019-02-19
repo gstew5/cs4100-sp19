@@ -360,15 +360,15 @@ Pre-state:
 
 | stack | heap |
 | ----- | ---- |
-| ... Vaddr(base) Vi32(idx) v STACK_TOP | ... Vi32(size) v1 v2 ... v_size ... HEAP_END |
-|                                       | ... ^base+idx ... HEAP_END |
+| ... Vaddr(base) Vi32(idx) v STACK_TOP | ... v_old ... HEAP_END |
+|                                       | ... ^base+idx+1 ... HEAP_END |
 
 Post-state: 
 
 | stack | heap |
 | ----- | ---- |
-| ... STACK_TOP | ... Vi32(size) v v2 ... v_size ... HEAP_END |
-|               | ... ^base+idx ... HEAP_END |
+| ... STACK_TOP | ... v ... HEAP_END |
+|               | ... ^base+idx+1 ... HEAP_END |
 
 ### Get
 
@@ -378,15 +378,15 @@ Pre-state:
 
 | stack | heap |
 | ----- | ---- |
-| ... Vaddr(base) Vi32(idx) STACK_TOP | ... Vi32(size) v1 v2 ... v_size ... HEAP_END |
-|                                     | ... ^base+idx ... HEAP_END |
+| ... Vaddr(base) Vi32(idx) STACK_TOP | ... v ... HEAP_END |
+|                                     | ... ^base+idx+1 ... HEAP_END |
 
 Post-state: 
 
 | stack | heap |
 | ----- | ---- |
-| ... v1 STACK_TOP | ... Vi32(size) v1 v2 ... v_size ... HEAP_END |
-|                  | ... ^base+idx ... HEAP_END |
+| ... v STACK_TOP | ... v ... HEAP_END |
+|                 | ... ^base+idx+1 ... HEAP_END |
 
 ### Var(i:u32)
 

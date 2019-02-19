@@ -354,20 +354,20 @@ Post-state:
 
 ### Set
 
-Store value `v` at heap address `base+idx`. Raise an error if `idx` is out of range for the array at address `base`.
+Store value `v` at heap address `base+idx+1` (element `idx` of the array beginning at `base`). Raise an error if `idx` is out of range for the array at address `base`.
 
 Pre-state: 
 
 | stack | heap |
 | ----- | ---- |
-| ... Vaddr(base) Vi32(idx) v STACK_TOP | ... v0 ... HEAP_END |
+| ... Vaddr(base) Vi32(idx) v STACK_TOP | ... Vi32(size) v0 v1 ... v_size ... HEAP_END |
 |                                       | ... ^base+idx ... HEAP_END |
 
 Post-state: 
 
 | stack | heap |
 | ----- | ---- |
-| ... STACK_TOP | ... v ... HEAP_END |
+| ... STACK_TOP | ... Vi32(size) v v1 ... v_size ... HEAP_END |
 |               | ... ^base+idx ... HEAP_END |
 
 ### Get

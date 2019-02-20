@@ -159,3 +159,7 @@ C[ (seq e1 e2) ] =
 The only wrinkle is that -- by the compilation invariant -- `instrs1` will leave `e1`'s result on top of the stack. We need to `pop` this result before we execute `instrs2`. Otherwise, the stack will contain an extra value. 
 
 Why do we pop `e1`'s result instead of using it? When executing the sequential composition of two expressions, the first expression `e1` is typically executed solely for its side-effects. For example, in the expression `(seq (print 65) 7)`, the first expression `(print 65)` prints the character `A` to `stdout` (`65` is the ASCII encoding of `A`). The overall expression returns `7`, the result of the second expression. 
+
+## Let Expressions and Variables
+
+## Functions

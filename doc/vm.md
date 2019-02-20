@@ -349,7 +349,7 @@ Post-state:
 
 | stack | heap |
 | ----- | ---- | 
-| ... Vaddr(array_start) STACK_TOP | ... Vi32(size) vinit_1 vinit_2 ... vinit_size HEAP_END |
+| ... Vaddr(array_start) STACK_TOP | ... Vsize(size) vinit_1 vinit_2 ... vinit_size HEAP_END |
 |                                  | ... ^array_start |
 
 ### Set

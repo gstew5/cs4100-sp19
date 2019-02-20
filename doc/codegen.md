@@ -33,6 +33,10 @@ i ::= push v     //Push a value
     | var u32    //var i: Push the value at stack position fp+i
     | store u32  //store i: x <- pop(); store x at stack position fp+i
     | branch     //stack = ... Vbool(b) Vloc(target) STACK_TOP: branch to target if b=true
+
+Instructions or Labels
+il ::= i         //An "il" is either an instruction 
+     | l:        //or a label "l" followed by a colon ":", as in "Lmain:".    
 ```
 ### Example: Values
 
@@ -105,3 +109,36 @@ Graphically, the situation looks like this:
 ```
 
 The `instrs_cond` block can jump to either `_Lthen` or `_Lelse` depending on whether `instrs_cond` evaluates to `true` or `false`. Both the "then" and the "else" blocks jump, when they're done executing, to a common block labeled `_Lend` that merges their control flow.
+
+Here's one way to code this pattern up:
+
+```
+C[ (cond econd e1 e2) ] = 
+  //Compile expressions
+  let instrs_cond = C[ econd ];
+  let instrs1 = C[ e1 ];
+  let instrs2 = C[ e2 ];
+    
+  //Allocate fresh (unused) labels 
+  let _Lthen = fresh_label(); //Prefix "_L" means compiler internal 
+  let _Lelse = fresh_label(); 
+  let _Lend  = fresh_label();
+  
+  //Generate code
+  instrs_cond ++ 
+  [push _Lthen, branch, push true, push _Lelse, branch] ++
+  [_Lthen:] ++ instrs1 ++ [push true, push _Lend, branch] ++
+  [_Lelse:] ++ instrs2 ++ [push true, push _Lend, branch] ++
+  [_Lend:]
+```  
+
+We can optimize this pattern slightly, by recognizing that `branch` falls through to the next instruction when a branch isn't taken:
+
+```
+  //Generate optimized code
+  instrs_cond ++ 
+  [push _Lthen, branch, push true] ++
+  instrs2 ++ [push true, push _Lend, branch] ++  
+  [_Lthen:] ++ instrs1 ++ [push true, push _Lend, branch] ++
+  [_Lend:]
+```  

@@ -17,6 +17,7 @@ e ::== v                    //Values
        (u e)                //Perform unary operation u
        (b e1 e2)            //Perform binary operation b
        (cond econd e1 e2)   //If econd then e1 otherwise e2
+       (seq e1 e2)          //Do e1 then e2
        (let x e1 e2)        //Let x equal the result of e1 in e2
        (print e)            //Print the result of e (cast to u8)
 ```

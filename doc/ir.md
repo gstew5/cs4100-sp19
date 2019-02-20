@@ -29,10 +29,12 @@ e ::= v                     //Values
       (set earr eidx e)     //Update array earr at index eidx to the value of e
       (get earr eidx)       //Get the value at index eidx of array earr
       (cond econd e1 e2)    //If econd evaluates to true then e1, else e2
-      (print e)             //Evaluate e to an i32 then print as ASCII by casting to u8 (char)
       (funptr f)            //A pointer to function f
       (call e e1 e2 ... eN) //Call function pointer e  
       (f e1 e2 ... eN)      //Call function f
+      
+//Extended expression types:
+      (print e)             //Evaluate e to an i32 then print as ASCII by casting to u8 (char)
 ```
 
 The syntax `(f e1 e2 ... eN)`, while supported by a compliant GrumpyIR parser, is purely for convenience. All such calls can be desugared as `(call (funptr f) e1 e2 ... eN)`.

@@ -66,7 +66,7 @@ where `u` is an arbitrary unary expression and `e` is its argument expression. W
 
 ### Compilation Invariants
 
-Let's talk a bit more about invariants. In general, an invariant is a property `I` that is *preserved* by some function `f(x)`. That is, if `I(x)` (`I` holds of `x`) before the call to `f`, then `I(f(x))` after (`I` holds of `f`'s result). Importantly, `I` need not hold *during* the call to `f`, only before (by assumption) and after `f` terminates. In other words, `f` is free to break the invariant while it's executing but must restore it afterwward.
+Let's talk a bit more about invariants. In general, an invariant is a property `I` that is *preserved* by some function `f(x)`. That is, if `I(x)` (`I` holds of `x`) before the call to `f`, then `I(f(x))` after (`I` holds of `f`'s result). Importantly, `I` need not hold *during* the call to `f`, only before (by assumption) and after `f` terminates. In other words, `f` is free to break the invariant while it's executing but must restore it afterward.
 
 An invariant of a compilation function, which we've called a *compilation invariant* above, is a property that the compilation function `C` may *assume*, for example of recursive calls to compile subexpressions of `e`, but also must *guarantee* of its result `C[ e ]`.
 

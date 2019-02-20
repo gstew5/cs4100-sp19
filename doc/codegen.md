@@ -12,6 +12,7 @@ v ::== i                    //32-bit signed integers
        true | false         //Booleans 
        tt                   //The "unit" value
 
+Expressions
 e ::== v                    //Values  
        x                    //Variables
        (u e)                //Perform unary operation u

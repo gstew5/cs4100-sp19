@@ -164,4 +164,15 @@ Why do we pop `e1`'s result instead of using it? When executing the sequential c
 
 ## Let Expressions and Variables
 
+How should we deal with variables? On a register machine, the compiler has to figure out how to allocate potentially many variables to a fixed set of registers. Since we're targeting a stack machine, we'll instead store all our variables (arguments and local variables) on the stack, starting at a position marked by a special register called the *frame pointer*, or `fp` (note that on a register machine, some locals might also be stored on the stack, if their address is taken in a language like C or if they spilled, i.e., couldn't fit in registers). 
+
+In the GrumpyVM, as a function begins executing its body, the stack looks something like this: 
+
+| Stack Position | fp+0 | ... | fp+(N-1) |        |        | (fp+(N-1)+2)+0 | ... | (fp+(N-1)+2)+(M-1) | 
+|----------------|------|-----|----------|--------|--------|----------------|-----|--------------------|
+| **Value**      | arg1 | ... | argN     | ret_fp | ret_pc | loc_var1       | ... | loc_varM           |
+
+The `N` arguments are at addresses `fp+0` to `fp+(N-1)` while the function's `M` local variables are stored at addresses `(fp+(N-1)+2)+0` to `(fp+(N-1)+2)+(M-1)`. The weird `+2` term is due to storage on the stack, when a GrumpyVM `call` instruction is executed, of the caller's `ret_fp` and `ret_pc`. Note also that in the GrumpyVM, the caller is responsible for pushing the arguments whereas the callee is responsible for making space on the stack for local variables. We'll come back to this point when we talk about functions below. 
+
 ## Functions
+

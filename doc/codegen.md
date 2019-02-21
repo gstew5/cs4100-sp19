@@ -192,5 +192,38 @@ C_rho[ x ] =
 
 Note that compilation may now fail if, for example, `x` was not defined (it's neither a function parameter nor a let-bound local variable) and therefore does not appear in `rho`.
 
-## Functions
+How do variables get placed in `rho`? One way is using `let` expressions. Consider, for example, the expression:
 
+```
+(let x <exp> 
+     (let y (+ x <exp>)
+          (let z (+ y <exp>))))
+```
+
+If this expression occurred inside the body of a function, then we as compiler writers could identify that the variables `x`, `y`, and `z` are all variables that require space in the function's stack frame. We could therefore make sure to add the appropriate entries in `rho` before we begin compiling the expression. Another method is to construct the environment `rho` as we go, making sure to keep track of which variables we may need to allocate space for in the stack frame. Either works fine but the first requires multiple passes through the expression.
+
+Assuming for purposes of discussion that we've done this mapping in `rho` already by making a first pass through the expression, let's consider compiling the general form of a `let` expression. The recipe is: 
+
+```
+C_rho[ (let x e1 e2) ] =
+  let i = rho(x);
+  let instrs1 = C_rho[ e1 ];
+  let instrs2 = C_rho[ e2 ];
+  instrs1 ++ [store i] ++ instrs2
+```
+
+That is, we first look up `x`'s storage location `i`, then we compile `e1` and `e2` but making sure to store `e1`'s result at position `fp+i` in the stack frame before we begin executing `e2`. That way, if `e2` looks up `x`, it will find the appropriate value (`e1`'s result).
+
+As an example, consider what happens when we compile `(let x 1 x)`.
+
+```
+C_rho[ (let x 1 x) ] = 
+  let i = rho(x);
+  let instrs1 = C_rho[ 1 ] (= [push 1]);
+  let instrs2 = C_rho[ x ] (= [var i]);
+  instrs1 ++ [store i] ++ instrs2 (= [push 1, store i, var i])
+```
+
+The resulting code first pushes `1`, then pops `1` storing it at stack position `fp+i`, then looks up the value at exactly the same position, pushing it onto the stack. We end up with the stack containing `1`. 
+
+## Functions

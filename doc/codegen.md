@@ -172,7 +172,25 @@ In the GrumpyVM, as a function begins executing its body, the stack looks someth
 |----------------|------|-----|----------|--------|--------|----------------|-----|--------------------|
 | **Value**      | arg1 | ... | argN     | ret_fp | ret_pc | loc_var1       | ... | loc_varM           |
 
-The `N` arguments are at addresses `fp+0` to `fp+(N-1)` while the function's `M` local variables are stored at addresses `(fp+(N-1)+2)+0` to `(fp+(N-1)+2)+(M-1)`. The weird `+2` term is due to storage on the stack, when a GrumpyVM `call` instruction is executed, of the caller's `ret_fp` and `ret_pc`. Note also that in the GrumpyVM, the caller is responsible for pushing the arguments whereas the callee is responsible for making space on the stack for local variables. We'll come back to this point when we talk about functions below. 
+The `N` arguments are at addresses `fp+0` to `fp+(N-1)` while the function's `M` local variables are stored at addresses `(fp+(N-1)+2)+0` to `(fp+(N-1)+2)+(M-1)`. The weird `+2` term is due to storage on the stack, when a GrumpyVM `call` instruction is executed, of the caller's `ret_fp` and `ret_pc`. Note also that in the GrumpyVM, the caller is responsible for pushing the arguments whereas the callee is responsible for making space on the stack for local variables. We'll come back to this point when we talk about functions below.
+
+Given the argument and local variable layout in the figure above, how should we implement `C[ x ]` where `x` is an arbitrary variable? One method is to maintain a mapping, from variables to their indices in the stack frame, telling us the location of `x`'s storage. That way, we can figure out where to find `x` when we need to read or initialize it. In pseudocode, this looks like: 
+
+```
+C[ x ] = 
+  let i = position of x in current stack frame;
+  return value at stack position [fp+i]
+```
+
+The last line of this pseudocode we can implement using the `var` instruction: `[var i]`. The `let i = position of x...` is a bit harder. We need to update our `C` function, as motivated above, to take an extra argument, the context mapping variables to their indices. Calling this context `rho`, we now get:
+
+```
+C_rho[ x ] = 
+  let i = rho(x);
+  [var i]
+```
+
+Note that compilation may now fail if, for example, `x` was not defined (it's neither a function parameter nor a let-bound local variable) and therefore does not appear in `rho`.
 
 ## Functions
 

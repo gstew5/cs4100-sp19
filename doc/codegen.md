@@ -2,7 +2,7 @@
 
 ## Compiling IR to Assembly
 
-We'll generate assembly from IR by defining a recursive function, `C[ e ]`, that maps expressions to lists of assembly instructions. To make our lives easier as we define `C`, we'll enforce as a **compilation invariant** (about which more below) that the list of instructions produced by `C[ e ]` leaves the stack unchanged *except* for storing `e`'s result on top.
+We'll generate assembly from IR by defining a recursive function, `C[ e ]`, that maps expressions to programs in assembly language, which are just sequences of assembly instructions or labels as we'll define in the grammar below. To make our lives easier as we define `C`, we'll enforce as a **compilation invariant** (about which more below) that the list of instructions produced by `C[ e ]` leaves the stack unchanged *except* for storing `e`'s result on top.
 
 Let's start, for the purposes of this chapter, with the following simple source expression language, a subset of the [Grumpy IR](ir.md):
 
@@ -33,9 +33,17 @@ i ::= push v     //Push value v
     | branch     //stack = ... Vbool(b) Vloc(target) STACK_TOP: branch to target if b=true
 
 Instructions or Labels
-il ::= i         //An "il" is either an instruction 
-     | l:        //or a label "l" followed by a colon ":", as in "Lmain:".    
+iL ::= i         //An "il" is either an instruction 
+     | L:        //or a label "L" followed by a colon ":", as in "Lmain:".         
 ```
+
+Programs in the target language are sequences of instructions or labels:
+
+```
+Program
+p ::= [iL1, iL2, ..., iLN]
+```
+
 ### Example: Values
 
 Let's say we're tasked with compiling a value `v`, as in `C[ v ]`. What should the result be? We can simply push `v` onto the stack!

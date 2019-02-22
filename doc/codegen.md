@@ -174,9 +174,9 @@ We might extend the source language as:
 
 ```
 Expressions
-e ::= ...           //Everything from before plus:
-    | x             //Variables
-    | (let x e1 e2) //Let expressions: Let x equal the result of e1 in e2
+e ::== ...           //Everything from before plus:
+     | x             //Variables
+     | (let x e1 e2) //Let expressions: Let x equal the result of e1 in e2
 ```
 
 To support variables in the target language, we'll extend our instruction set with: 
@@ -184,8 +184,8 @@ To support variables in the target language, we'll extend our instruction set wi
 ```
 Instructions 
 i ::== ...       //Everything from before plus:
-    | var u32    //var i: Push the value at stack position fp+i
-    | store u32  //store i: x <- pop(); store x at stack position fp+i
+     | var u32    //var i: Push the value at stack position fp+i
+     | store u32  //store i: x <- pop(); store x at stack position fp+i
 ```
 
 How should we compile variables? On a register machine, the compiler has to figure out how to allocate potentially many variables to a fixed set of registers. Since we're targeting a stack machine, we'll instead store all our variables (arguments and local variables) on the stack, starting at a position marked by a special register called the *frame pointer*, or `fp` (note that on a register machine, some locals might also be stored on the stack, if their address is taken in a language like C or if they spilled, i.e., couldn't fit in registers). 
@@ -251,3 +251,42 @@ C_rho[ (let x 1 x) ] =
 The resulting code first pushes `1`, then pops `1` storing it at stack position `fp+i`, then looks up the value at exactly the same position, pushing it onto the stack. We end up with the stack containing `1`. 
 
 ## Functions
+
+As our final extension, let's consider what happens when we add functions to our source and target languages. We'll extend our source-language syntax as follows:
+
+```
+Expressions
+e ::== ...                    //Everything from before plus:
+     | (funptr f)             //The location of function f
+     | (call ef e1 e2 ... eN) //Call ef (which should evaluate to a function pointer) on e1, e2, ..., eN
+```
+
+Likewise, we'll extend our target language's syntax to support calls and returns:
+
+```
+Instructions 
+i ::== ...        //Everything from before plus:
+     | call       //pre_stack  = ... varg1 varg2 ... vargN Vloc(caller_fp) Vloc(target) STACK_TOP
+                  //post_stack = ... varg1 varg2 ... vargN Vloc(caller_fp) Vloc(cur_pc) STACK_TOP
+     | ret        //pre_stack  = ... varg1 varg2 ... vargN Vloc(ret_fp) Vloc(ret_pc) vret STACK_TOP        
+                  //post_stack = ... vret STACK_TOP
+     | setframe i //Push current fp, set fp to stack_len - i - 1          
+```
+
+How do we compile a `funptr` expression? It becomes a push of the location associated with the function:
+
+```
+C_rho[ (funptr f) ] = [push Lf]
+```
+
+Compiling function calls is a bit trickier:
+
+```
+C_rho[ (call ef e1 e2 ... eN) ] = 
+  let instrs1 = C_rho[ e1 ];
+  let instrs2 = C_rho[ e2 ];
+  ...
+  let instrsN = C_rho[ eN ];
+  let instrs_ef = C_rho[ ef ];
+  instrs1 ++ instrs2 ++ ... ++ instrsN ++ instrs_ef ++ [setframe (N+1), swap, call]
+```  

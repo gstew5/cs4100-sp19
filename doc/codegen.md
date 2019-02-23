@@ -296,7 +296,7 @@ C_rho[ (call ef e1 e2 ... eN) ] =
 
 First we compile instructions for the arguments `e1` through `eN`. Then we compile code for the function pointer itself, `ef`. Finally, we string things together by first executing (in our generated code) the arguments, then the function pointer, then `setframe` followed by a `swap` and `call`.
 
-The `setframe (N+1)` instruction updates the frame pointer to point `N+1` values into the stack, at the value of `e1` the gets pushed by executing `instrs1` (the `+1` deals with the fact that `instrs_ef` just pushed an additional value, the function pointer about to be called). `setframe` returns the previous frame pointer before the update on the stack (`ret_fp`) but `call` expects the function pointer to be on top of the stack (`target`) so we execute a `swap` before `call` to switch the order of the two arguments. 
+The `setframe (N+1)` instruction updates the frame pointer to point `N+1` values into the stack, at the value of `e1` that gets pushed by executing `instrs1`. The slightly weird `+1` deals with the fact that `instrs_ef` just pushed an additional value, the function pointer about to be called. `setframe` pushes`ret_fp`, the previous frame pointer, on the stack but `call` expects the function pointer on top so we execute a `swap` before `call` to switch the order of the two arguments. 
 
 ```
 Question for self-study: What's wrong with setting the frame pointer *before* executing instrs_ef?

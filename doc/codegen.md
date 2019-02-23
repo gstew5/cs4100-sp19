@@ -261,7 +261,7 @@ e ::== ...                    //Everything from before plus:
      | (call ef e1 e2 ... eN) //Call ef (which should evaluate to a function pointer) on e1, e2, ..., eN
 ```
 
-Likewise, we'll extend our target language's syntax to support calls and returns:
+Likewise, we'll extend our target language's syntax to support calls and returns as follows:
 
 ```
 Instructions 
@@ -270,8 +270,11 @@ i ::== ...        //Everything from before plus:
                   //post_stack = ... varg1 varg2 ... vargN Vloc(caller_fp) Vloc(cur_pc) STACK_TOP
      | ret        //pre_stack  = ... varg1 varg2 ... vargN Vloc(ret_fp) Vloc(ret_pc) vret STACK_TOP        
                   //post_stack = ... vret STACK_TOP
-     | setframe i //Push current fp, set fp to stack_len - i - 1          
+     | setframe i //Push current fp, set fp to stack_len - i - 1
+     | swap       //Swap the topmost two values on the stack
 ```
+
+We'll use the `setframe` and `swap` instructions below, in our implementation of `call`.
 
 How do we compile a `funptr` expression? It becomes a push of the location associated with the function:
 
@@ -290,3 +293,11 @@ C_rho[ (call ef e1 e2 ... eN) ] =
   let instrs_ef = C_rho[ ef ];
   instrs1 ++ instrs2 ++ ... ++ instrsN ++ instrs_ef ++ [setframe (N+1), swap, call]
 ```  
+
+First we compile instructions for the arguments `e1` through `eN`. Then we compile code for the function pointer itself, `ef`. Finally, we string things together by first executing (in our generated code) the arguments, then the function pointer, then `setframe` followed by a `swap` and `call`.
+
+The `setframe (N+1)` instruction updates the frame pointer to point `N+1` values into the stack, at the value of `e1` the gets pushed by executing `instrs1` (the `+1` deals with the fact that `instrs_ef` just pushed an additional value, the function pointer about to be called). `setframe` returns the previous frame pointer before the update on the stack (`ret_fp`) but `call` expects the function pointer to be on top of the stack (`target`) so we execute a `swap` before `call` to switch the order of the two arguments. 
+
+```
+Question for self-study: What's wrong with setting the frame pointer *before* executing instrs_ef?
+```

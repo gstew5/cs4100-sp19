@@ -274,7 +274,7 @@ i ::== ...        //Everything from before plus:
      | swap       //Swap the topmost two values on the stack
 ```
 
-We'll use the `setframe` and `swap` instructions below, in our implementation of `call`.
+We'll use the two additional instructions `setframe` and `swap` instructions in our implementation of `call` below.
 
 How do we compile a `funptr` expression? It becomes a push of the location associated with the function:
 

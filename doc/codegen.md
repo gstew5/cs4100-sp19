@@ -276,6 +276,8 @@ i ::== ...        //Everything from before plus:
 
 We'll use the two additional instructions `setframe` and `swap` instructions in our implementation of `call` below.
 
+### Function Pointers
+
 But first, how do we compile a `funptr` expression? It becomes a push of the location associated with the function:
 
 ```
@@ -283,6 +285,8 @@ C_rho[ (funptr f) ] = [push Lf]
 ```
 
 If functions are defined at most once, then from a given function name `f` we can also build an appropriate corresponding fresh label `Lf`.
+
+### Function Calls
 
 Compiling function calls is a bit trickier:
 
@@ -303,3 +307,17 @@ The `setframe (N+1)` instruction updates the frame pointer to point `N+1` values
 ```
 Question for self-study: What's wrong with setting the frame pointer *before* executing instrs_ef?
 ```
+
+### Function Definitions (WIP)
+
+Function in Grumpy have form: 
+
+```
+   fn ::= (fun f param1 param2 ... paramN -> ty e) //Function definitions
+```
+
+where `param`s are pairs of strings `x` along with their expected types `ty`.
+
+How to compile such a function definition?
+
+The first step is to determine the set of let-bound local variables in the body of the function `e`. Then we can construct an overall compilation environment `rho` for the function body that includes both the function's parameters and its let-bound variables.

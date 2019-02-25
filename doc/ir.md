@@ -34,7 +34,8 @@ e ::= v                     //Values
       (f e1 e2 ... eN)      //Call function f
       
 //Extended expression types:
-      (print e)             //Evaluate e to an i32 then print as ASCII by casting to u8 (char)
+      (print e)             //Evaluate e to an i32 then print as ASCII by casting to u8
+      (spawn eclos)         //Spawn a new thread initialized to run eclos (a heap-allocated closure)
 ```
 
 The syntax `(f e1 e2 ... eN)`, while supported by a compliant GrumpyIR parser, is purely for convenience. All such calls can be desugared as `(call (funptr f) e1 e2 ... eN)`.

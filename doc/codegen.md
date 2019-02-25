@@ -276,11 +276,13 @@ i ::== ...        //Everything from before plus:
 
 We'll use the two additional instructions `setframe` and `swap` instructions in our implementation of `call` below.
 
-How do we compile a `funptr` expression? It becomes a push of the location associated with the function:
+But first, how do we compile a `funptr` expression? It becomes a push of the location associated with the function:
 
 ```
 C_rho[ (funptr f) ] = [push Lf]
 ```
+
+If functions are defined at most once, then from a given function name `f` we can also build an appropriate corresponding fresh label `Lf`.
 
 Compiling function calls is a bit trickier:
 

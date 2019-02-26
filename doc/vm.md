@@ -427,7 +427,7 @@ Post-state:
 ### SetFrame(i:u32)
 
 1. Push the current frame pointer `cur_fp` onto the stack.
-2. Set the frame pointer to `stack_len - i - 1`, where `stack_len` is the length of the stack after 1.
+2. Set the frame pointer to `stack_len - i - 1`, where `stack_len` is the length of the execution stack after step 1.
 
 Pre-state: 
 
@@ -443,12 +443,12 @@ Post-state:
 
 ### Call
 
-Call function at address `target` with arguments `varg1 varg2 ... vargN`. 
-`cur_fp` is the frame pointer of the caller, which must be stored on the stack before the call instruction is executed. 
+Call function at address `target` with arguments `varg1 varg2 ... vargN`. `caller_fp` is the frame pointer of the caller, which by calling convention was stored on the stack before the call instruction is executed (the `ret` instruction below expects this).
+Also by calling convention, the **fp** register contains `callee_fp`, addressing the callee's first argument, at the point at which the call is executed. 
 
 The result of `Call` is to: 
 1. Pop the `target` address.
-2. Push `cur_pc` onto the stack (points to the instruction directly after the call). 
+2. Push `caller_pc` onto the stack. Note that because the GrumpyVM's mainloop increments the `pc` before executing the instruction at `pc - 1`, `caller_pc` points to the instruction directly after the call (the caller's continuation). 
 3. Set the machine's `pc` register to `target`. 
 
 `Call` raises an error if `target` is an invalid instruction.
@@ -457,35 +457,36 @@ Pre-state:
 
 | pc | fp | stack | 
 | -- | -- | ----- | 
-| cur_pc | cur_fp | ... varg1 varg2 ... vargN Vloc(caller_fp) Vloc(target) STACK_TOP |
-|        |        | ... ^cur_fp ... STACK_TOP |
+| caller_pc | callee_fp | ... varg1 varg2 ... vargN Vloc(caller_fp) Vloc(target) STACK_TOP |
+|           |           | ... ^callee_fp ... STACK_TOP |
 
 Post-state: 
 
 | pc | fp | stack | 
 | -- | -- | ----- | 
-| target | cur_fp | ... varg1 varg2 ... vargN Vloc(caller_fp) Vloc(cur_pc) STACK_TOP |
+| target  | callee_fp | ... varg1 varg2 ... vargN Vloc(caller_fp) Vloc(caller_pc) STACK_TOP |
 
 ### Ret
 
 Function call return. 
 
-1. Restore the caller's program counter `ret_pc` and frame pointer `ret_fp`. 
-2. Pop arguments `varg1 varg2 ... vargN`. 
-3. Push the return value `vret`, which is assumed to be the top value on the stack right before the `Ret` instruction is executed. 
+1. Pop `vret`.
+2. Pop and restore the caller's program counter `caller_pc` and frame pointer `caller_fp`. 
+3. Pop arguments `varg1 varg2 ... vargN`. 
+4. Push the return value `vret`.
 
 Pre-state: 
 
 | pc | fp | stack | 
 | -- | -- | ----- | 
-| cur_pc | cur_fp | ... varg1 varg2 ... vargN Vloc(ret_fp) Vloc(ret_pc) vret STACK_TOP |
-|        |        | ... ^cur_fp ... STACK_TOP |
+| callee_pc | callee_fp | ... varg1 varg2 ... vargN Vloc(caller_fp) Vloc(caller_pc) vret STACK_TOP |
+|           |           | ... ^callee_fp ... STACK_TOP |
 
 Post-state: 
 
 | pc | fp | stack | 
 | -- | -- | ----- | 
-| ret_pc | ret_fp | ... vret STACK_TOP |
+| caller_pc | caller_fp | ... vret STACK_TOP |
 
 ### Branch
 

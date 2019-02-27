@@ -119,6 +119,10 @@ GrumpyVM's `mainloop` performs the following operations in order:
 We implement this execution loop as the Rust function `exec` that takes as its second argument a mutable pointer to the VM state. The first argument, `d: &Debug`, is an immutable `DEBUG` flag.
 
 ```
+pub enum Debug {
+    DEBUG,
+    NODEBUG
+}
 pub fn exec(d: &Debug, s: &mut State) {
     'mainloop:loop {
         if s.halt { break 'mainloop }

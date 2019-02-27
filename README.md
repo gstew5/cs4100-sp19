@@ -61,7 +61,7 @@ The schedule is subject to revision.
 | Week 5 (11 Feb)             | Garbage collection, concurrency | Appel 13 | [PA1: Assembler](pa/1.md) (13 Feb) |
 | Week 6 (18 Feb)             | Intermediate representations, code generation | [Intermediate Representations](doc/ir.md), [Code Generation](doc/codegen.md) | Q2 (21 Feb) |
 | Week 7 (25 Feb)             | Regular languages, regular expressions | Appel 2 (through 2.2), [RE Derivatives](re-derivs.pdf) | [PA2: VM](pa/2.md) (1 Mar) |
-| Week 8 (4 Mar)              | DFAs, NFAs, lexers and lexer generators | Appel 2.3-2.5 | Q3 (4 Mar), Midterm Exam (6 Mar, tentative) |
+| Week 8 (4 Mar)              | DFAs, NFAs, lexers and lexer generators | Appel 2.3-2.5 | Q3 (6 Mar), Midterm Exam (8 Mar) |
 | Week 9 (11 Mar)             | **SPRING BREAK** | |  |
 | Week 10 (18 Mar)            | Context-free languages, pushdown automata | Appel 3 | [PA3: Runtime](pa/3.md) (20 Mar) |
 | Week 11 (25 Mar)            | Recursive descent and predictive parsing, parser generators | | Q4 (27 Mar) |

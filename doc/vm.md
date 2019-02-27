@@ -472,7 +472,7 @@ Function call return.
 
 1. Pop `vret`.
 2. Pop and restore the caller's program counter `caller_pc` and frame pointer `caller_fp`. 
-3. Pop arguments `varg1 varg2 ... vargN`. 
+3. Pop arguments `vargN varg(N-1) ... varg1` (assumes that `callee_fp` contains the address of `varg1`). 
 4. Push the return value `vret`.
 
 Pre-state: 

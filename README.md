@@ -65,8 +65,8 @@ The schedule is subject to revision.
 | Week 9 (11 Mar)             | **SPRING BREAK** | |  |
 | Week 10 (18 Mar)            | Context-free languages, pushdown automata | Appel 3 | [PA3: Runtime](pa/3.md) (22 Mar) |
 | Week 11 (25 Mar)            | Recursive descent and predictive parsing, parser generators | | Q4 (27 Mar) |
-| Week 12 (1 Apr)             | Control-flow graphs, dominators | Appel 7.1, Appel 18.1 | **PA4: IR** (10 Apr) |
-| Week 13 (8 Apr)             | Dataflow/liveness analysis | Appel 10.1 | Q5 (10 Apr) |
+| Week 12 (1 Apr)             | Control-flow graphs, dominators | Appel 7.1, Appel 18.1 | Q5 (3 Apr) |
+| Week 13 (8 Apr)             | Dataflow/liveness analysis | Appel 10.1 | **PA4: IR** (10 Apr) |
 | Week 14 (15 Apr)            | Dataflow/liveness analysis continued | Appel 19 (up to but not including 19.1) | Q6 (24 Apr) |
 | Week 15 (22 Apr)            | Register allocation | Appel 11 | **PA5: Desugaring** (24 Apr) |
 | 29 Apr - 3 May              | **FINAL EXAM PERIOD** | | |

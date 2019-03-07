@@ -63,12 +63,12 @@ The schedule is subject to revision.
 | Week 7 (25 Feb)             | Regular languages, regular expressions | Appel 2 (through 2.2), [RE Derivatives](re-derivs.pdf) | [PA2: VM](pa/2.md) (1 Mar) |
 | Week 8 (4 Mar)              | DFAs, NFAs, lexers and lexer generators | Appel 2.3-2.5 | Q3 (6 Mar), Midterm Exam (8 Mar) |
 | Week 9 (11 Mar)             | **SPRING BREAK** | |  |
-| Week 10 (18 Mar)            | Context-free languages, pushdown automata | Appel 3 | [PA3: Runtime](pa/3.md) (20 Mar) |
+| Week 10 (18 Mar)            | Context-free languages, pushdown automata | Appel 3 | [PA3: Runtime](pa/3.md) (22 Mar) |
 | Week 11 (25 Mar)            | Recursive descent and predictive parsing, parser generators | | Q4 (27 Mar) |
-| Week 12 (1 Apr)             | Control-flow graphs, dominators | Appel 7.1, Appel 18.1 | **PA4: IR** (5 Apr) |
+| Week 12 (1 Apr)             | Control-flow graphs, dominators | Appel 7.1, Appel 18.1 | **PA4: IR** (10 Apr) |
 | Week 13 (8 Apr)             | Dataflow/liveness analysis | Appel 10.1 | Q5 (10 Apr) |
 | Week 14 (15 Apr)            | Dataflow/liveness analysis continued | Appel 19 (up to but not including 19.1) | Q6 (24 Apr) |
-| Week 15 (22 Apr)            | Register allocation | Appel 11 | **PA5: Desugaring** (22 Apr) |
+| Week 15 (22 Apr)            | Register allocation | Appel 11 | **PA5: Desugaring** (24 Apr) |
 | 29 Apr - 3 May              | **FINAL EXAM PERIOD** | | |
 
 Assignments are due in Blackboard at 11:59pm unless otherwise specified. **Q0**, **Q1**, etc., denote quizzes in Blackboard, generally due on the Wednesdays of weeks without due programming assignments (PAs).

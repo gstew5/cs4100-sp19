@@ -1,5 +1,17 @@
-As we saw in class, this code may copy a chunk from FROM_HEAP
-to TO_HEAP more than once, leading to potential cycles.
+A small copying garbage collector in C.
 
-For 1 pt EC: Fix this error. Submit your updated code as a pull
-request to the cs4100-public repository.
+Main files:
+* gc.h: Defines the heap "chunk" type
+* gc.c: Includes functions for managing the heap and stack, and for performing collections
+
+Build:
+
+```
+> gcc gc.h gc.c
+```
+
+Run:
+
+```
+> ./a.out
+```

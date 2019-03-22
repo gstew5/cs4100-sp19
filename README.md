@@ -63,7 +63,7 @@ The schedule is subject to revision.
 | Week 7 (25 Feb)             | Regular languages, regular expressions | Appel 2 (through 2.2), [RE Derivatives](re-derivs.pdf) | [PA2: VM](pa/2.md) (1 Mar) |
 | Week 8 (4 Mar)              | DFAs, NFAs, lexers and lexer generators | Appel 2.3-2.5 | Q3 (6 Mar), Midterm Exam (8 Mar) |
 | Week 9 (11 Mar)             | **SPRING BREAK** | |  |
-| Week 10 (18 Mar)            | Context-free languages, pushdown automata | Appel 3 | [PA3: Runtime](pa/3.md) (22 Mar) |
+| Week 10 (18 Mar)            | Context-free languages, pushdown automata | Appel 3 | [PA3: Runtime](pa/3.md) (24 Mar) |
 | Week 11 (25 Mar)            | Recursive descent and predictive parsing, parser generators | | Q4 (27 Mar) |
 | Week 12 (1 Apr)             | Control-flow graphs, dominators | Appel 7.1, Appel 18.1 | Q5 (3 Apr) |
 | Week 13 (8 Apr)             | Dataflow/liveness analysis | Appel 10.1 | [PA4: IR](pa/4.md) (10 Apr) |

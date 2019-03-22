@@ -115,6 +115,23 @@ fn run_const() {
     assert_eq!(s.rb[ACC], 1);
 }
 
+#[test]
+fn run_mov() {
+    let mut s = init_state();
+    s.rb[ACC] = 0;
+    s.rb[RA] = 7;    
+    run(&mut s, &[Mov(ACC, RA), Hlt]);
+    assert_eq!(s.rb[ACC], 7);
+}
+
+#[test]
+fn run_br() {
+    let mut s = init_state();
+    s.rb[RA] = 7;    
+    run(&mut s, &[Br(1), Mov(ACC, RA), Hlt]);
+    assert_eq!(s.rb[ACC], 7);
+}
+
 fn main() {
     let mut init_state = init_state();
     //Assumes RA stores n > 0

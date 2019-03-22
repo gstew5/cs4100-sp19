@@ -100,11 +100,23 @@ fn run(s: &mut State, prog: &[Instr]) {
 use Instr::*;
 use Reg::*;
 
-fn main() {
-    let mut init_state = State{
+fn init_state() -> State {
+    State {
         pc: 0,
         rb: RegBank{acc: 0, ra: 5, rb: 0, rc: 0}
-    };
+    }
+}
+
+
+#[test]
+fn run_const() {
+    let mut s = init_state();
+    run(&mut s, &[Const(ACC, 1), Hlt]);
+    assert_eq!(s.rb[ACC], 1);
+}
+
+fn main() {
+    let mut init_state = init_state();
     //Assumes RA stores n > 0
     //Result is stored in ACC
     let fact = vec![

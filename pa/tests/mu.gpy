@@ -1,0 +1,8 @@
+(fun len (x (mu y (sum unit (prod i32 y)))) -> i32
+  (match (unfold x)
+    (u 0)
+    (p (+ 1 (len (snd p))))))
+%
+1
+
+              

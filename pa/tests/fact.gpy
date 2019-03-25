@@ -1,0 +1,6 @@
+(fun fact (x i32) -> i32
+  (cond (== 0 x) 1 (* x (fact (- x 1)))))
+
+%
+
+(fact 5)

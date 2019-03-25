@@ -1,0 +1,9 @@
+(fun f (x i32) -> i32
+  (cond (== x 0) 3 
+        (seq (alloc 100 false) 
+             (let a (alloc 1 x) 
+                    (f (- (get a 0) 1))))))
+
+%
+
+(f 200)

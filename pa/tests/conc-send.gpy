@@ -1,0 +1,4 @@
+%
+
+(let ch (channel i32)
+     (send ch 3))

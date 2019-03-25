@@ -1,0 +1,16 @@
+%
+
+(let h 104
+(let i 105
+(let t 116
+(let e 101
+(let r 114
+(let space 32
+(seq (print h)
+(seq (print i)
+(seq (print space)
+(seq (print t)
+(seq (print h)
+(seq (print e)
+(seq (print r)
+(print e))))))))))))))

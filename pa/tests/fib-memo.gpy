@@ -1,0 +1,17 @@
+(fun fib (x i32) (a (array i32)) (done (array bool)) -> i32
+   (let r
+     (cond (== 0 x) 1
+           (cond (== 1 x) 1
+	   	 (+ (cond (get done (- x 1)) (get a (- x 1))
+			  (fib (- x 1) a done))
+		    (cond (get done (- x 2)) (get a (- x 2))
+			  (fib (- x 2) a done)))))
+     (seq (set a x r)
+	  (seq (set done x true)
+	       r))))
+
+%
+	       
+(let n 20
+     (fib n (alloc (+ n 1) 0) (alloc (+ n 1) false)))
+		    

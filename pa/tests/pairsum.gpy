@@ -1,0 +1,6 @@
+(fun f (x (sum bool i32)) -> i32
+   (match x
+      (b 0)
+      (i (+ i i))))
+%
+(f (inr bool 27))

@@ -1,0 +1,4 @@
+%
+
+(let l (lam x i32 (lam y i32 (lam z i32 (+ (+ x y) z))))
+   (app (app (app l 3) 4) 5))

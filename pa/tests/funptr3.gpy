@@ -1,0 +1,6 @@
+(fun f (x i32) -> i32 x)
+(fun g (x i32) -> i32 (+ x 1))
+
+%
+
+(let fptr (cond false (funptr f) (funptr g)) (call fptr 3))

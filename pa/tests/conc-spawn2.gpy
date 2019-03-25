@@ -1,0 +1,5 @@
+%
+
+(let a 97 (let f (lam x unit (print a))
+
+(spawn f)))

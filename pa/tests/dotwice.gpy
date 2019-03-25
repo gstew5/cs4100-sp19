@@ -1,0 +1,4 @@
+%
+
+(let g (lam f (-> i32 i32) (lam x i32 (app f (app f x))))
+      (app (app g (lam x i32 (+ 1 x))) 10))

@@ -1,0 +1,9 @@
+(fun fact (x i32) -> i32
+  (let a (alloc 100 0) 
+       (seq (set a 0 x)
+            (let y (get a 0)
+                   (cond (== 0 y) 1 (* y (fact (- y 1))))))))
+
+%
+
+(fact 12)

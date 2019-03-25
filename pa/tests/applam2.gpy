@@ -1,0 +1,3 @@
+%
+
+(app (let y 4 (lam x i32 (+ x y))) 3)

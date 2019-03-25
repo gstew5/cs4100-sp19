@@ -1,0 +1,19 @@
+(type list (mu y (sum unit (prod i32 y))))
+
+(fun nil (x unit) -> list
+  (fold (mu z (sum unit (prod i32 z)))
+    (inl (prod i32 list) tt)))
+
+(fun cons (x i32) (l list)
+     -> list
+  (fold list
+    (inr unit (pair x l))))
+
+(fun add (x list) -> i32
+  (match (unfold x)
+    (u 0)
+    (p (+ (fst p) (add (snd p))))))
+
+%
+
+(add (cons 1 (cons 2 (cons 3 (nil tt)))))

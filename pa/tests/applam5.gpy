@@ -1,0 +1,6 @@
+(fun f (g (-> i32 i32)) -> i32
+  (app g (app g 3)))
+
+%
+
+(f (lam x i32 (+ 1 x)))

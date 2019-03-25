@@ -1,0 +1,5 @@
+(fun f (x i32) -> i32 x)
+
+%
+
+(call (let fptr (funptr f) fptr) 3)

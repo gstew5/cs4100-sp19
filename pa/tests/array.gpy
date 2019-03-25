@@ -1,0 +1,7 @@
+(fun f (x (array i32)) -> i32 
+  (seq (set x 23 42) 
+       (get x 23)))
+
+%
+
+(f (alloc 100 7))

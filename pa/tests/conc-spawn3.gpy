@@ -1,0 +1,8 @@
+%
+(let f (lam c i32 (lam x unit (print c)))
+
+(let a 97
+(let b 98
+
+(seq (spawn (app f a))
+     (spawn (app f b))))))

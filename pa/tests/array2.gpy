@@ -1,0 +1,3 @@
+%
+
+(let x (alloc 10 0) (get (get (alloc 1 x) 0) 9))

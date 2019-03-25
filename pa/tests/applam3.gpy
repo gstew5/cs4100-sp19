@@ -1,0 +1,2 @@
+%(let l (lam x i32 (lam y i32 (+ x y)))
+   (app (app l 3) 4))

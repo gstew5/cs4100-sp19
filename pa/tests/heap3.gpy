@@ -1,0 +1,14 @@
+(fun f (x i32) -> i32
+  (cond (== x (/ 3 1))
+    3
+    (seq (alloc 100 false) (f (- x 1)))))
+
+(fun g (x i32) -> i32
+  (let a (alloc 1 (alloc 100 10))
+    (seq (f 15)
+         (get (get a 0) 50))
+    ))
+
+%
+
+(g 0)

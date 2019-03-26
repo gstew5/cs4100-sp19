@@ -308,7 +308,7 @@ The `setframe (N+1)` instruction updates the frame pointer to point `N+1` values
 Question for self-study: What's wrong with setting the frame pointer *before* executing instrs_ef?
 ```
 
-### Function Definitions (WIP)
+### Function Definitions
 
 Function in Grumpy have form: 
 

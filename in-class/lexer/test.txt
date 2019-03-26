@@ -1,0 +1,7 @@
+1 + 2 + 3 *
+/* comment
+
+    /* a nested comment */
+
+*/
+  a

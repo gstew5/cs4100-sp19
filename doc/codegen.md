@@ -190,7 +190,7 @@ i ::== ...       //Everything from before plus:
 
 How should we compile variables? On a register machine, the compiler has to figure out how to allocate potentially many variables to a fixed set of registers. Since we're targeting a stack machine, we'll instead store all our variables (arguments and local variables) on the stack, starting at a position marked by a special register called the *frame pointer*, or `fp` (note that on a register machine, some locals might also be stored on the stack, if their address is taken in a language like C or if they spilled, i.e., couldn't fit in registers). 
 
-In the GrumpyVM, as a function begins executing its body, the stack looks something like this: 
+In the GrumpyVM, as a function begins executing its body, the stack looks like this: 
 
 | Stack Position | fp+0 | ... | fp+(N-1) |        |        | (fp+(N-1)+2)+0 | ... | (fp+(N-1)+2)+(M-1) | 
 |----------------|------|-----|----------|--------|--------|----------------|-----|--------------------|
@@ -321,3 +321,53 @@ where `param`s are pairs of strings `x` along with their expected types `ty`.
 How to compile such a function definition?
 
 The first step is to determine the set of let-bound local variables in the body of the function `e`. Then we can construct an overall compilation environment `rho` for the function body that includes both the function's parameters and its let-bound variables.
+
+We define the let-bound variables of an expression `e` by:
+
+```
+bvs[ x ] = []
+bvs[ (let x e1 e2) ] = {x} \cup bvs[ e1 ] \cup bvs[ e2 ]
+```
+
+where by `\cup` we mean the union of two sets.
+
+The bound variables of the other expression types are defined similarly, e.g.:
+
+```
+bvs[ (cond e e1 e2) ] = bvs[ e ] \cup bvs[ e1 ] \cup bvs[ e2 ]
+bvs[ (seq e1 e2) ] = bvs[ e1 ] \cup bvs[ e2 ]
+...
+```
+
+We make the simplifying assumption that there is no let-bound variable shadowing (such shadowing can be detected during type checking). 
+
+Once we know the let-bound variables of the body of a function `e`, we can construct the compilation environment for the function definition as a map from variable names to their storage locations, as indices `i` from the frame pointer: 
+
+| **Variable**   | arg1 | ... | argN     | let_var1       | ... | let_varM           |
+|----------------|------|-----|----------|----------------|-----|--------------------|
+| **rho**        | 0    | ... | N-1      | (N-1)+2        | ... | (N-1)+2+(M-1)      | 
+
+Variable `x` is stored at `fp + rho(x)`. For example, variable `let_var1` is stored at stack position `fp+(N-1)+2` where `N` is the number of function arguments. The `+2` gap between the arguments `argN` and `let_var1` is to account for the `ret_fp` and `ret_pc` values that are stored on the stack by the caller. 
+
+When a function begins executing, it needs to allocate space on the stack for its let-bound variables (by the GrumpyVM calling convention, the caller pushes the arguments and its return frame pointer and program counter). In pseudocode, this process is:
+
+```
+C[ (fun f param1 param2 ... paramN -> ty e) ] = 
+  let mut instrs = [];
+  //Calculate let-bound variables of function body e.
+  let let_vars = bvs[ e ];
+  //INTRO: Allocate callee stack frame (where let-bound variables will be stored).
+  for x in let_vars:
+    instrs.push( push Vundef );
+  //Build compilation environment rho
+  let rho = compilation environment for function, as described above;
+  //Compile e, referencing rho
+  instrs.append( C_rho[ e ] );
+  //OUTRO: Pop let-bound variables; store return value on top of stack  
+  ...
+  instrs.append( ... )
+  //Return
+  instrs.push( ret )
+```
+
+The final missing piece is the `OUTRO`, the code that deallocates the function's let-bound variables and then has the function return. The main idea is store the return value at the appropriate slot on the stack (as expected by the `ret` instruction), then simply to pop the let-bound variables.

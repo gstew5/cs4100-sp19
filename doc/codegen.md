@@ -325,7 +325,7 @@ The first step is to determine the set of let-bound local variables in the body 
 We define the let-bound variables of an expression `e` by:
 
 ```
-bvs[ x ] = []
+bvs[ x ] = {}
 bvs[ (let x e1 e2) ] = {x} \cup bvs[ e1 ] \cup bvs[ e2 ]
 ```
 

@@ -5,6 +5,7 @@ pub enum Tok {
     PLUS,
     TIMES,
     I32(i32),
+    DOLLAR,
 }
 
 #[derive(Debug,Clone)]
@@ -82,6 +83,7 @@ fn lex<'a>(l: &mut LexerState<'a>) -> Result<Tok, String> {
     //The rest
     else if s.starts_with("+") { lex_upd!(l, 1, Tok::PLUS) }
     else if s.starts_with("*") { lex_upd!(l, 1, Tok::TIMES) }
+    else if s.starts_with("$") { lex_upd!(l, 1, Tok::DOLLAR) }    
     else {
         match Regex::new(r"\A[[:digit:]]+").unwrap().find(s) {
             Some(mat) => {

@@ -85,7 +85,7 @@ fn lex<'a>(l: &mut LexerState<'a>) -> Result<Tok, String> {
     else if s.starts_with("*") { lex_upd!(l, 1, Tok::TIMES) }
     else if s.starts_with("$") { lex_upd!(l, 1, Tok::DOLLAR) }    
     else {
-        match Regex::new(r"\A[[:digit:]]+").unwrap().find(s) {
+        match Regex::new(r"^\A[[:digit:]]+").unwrap().find(s) {
             Some(mat) => {
                 assert_eq!(mat.start(), 0);
                 let (n, rest) = s.split_at(mat.end());

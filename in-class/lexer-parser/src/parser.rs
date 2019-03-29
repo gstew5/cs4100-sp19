@@ -4,8 +4,9 @@ use types::*;
 use types::Exp::*;
 use types::Binop::*;
 
-/* GRAMMAR
+/* GRAMMAR:
 
+   <start> ::= <exp> $
      <exp> ::== <i32>
               | <exp> + <exp>
               | <exp> * <exp>
@@ -56,6 +57,7 @@ fn parse_exp(l: &mut LexerState) -> Result<Exp,String> {
         I32(_) => {
             let t = parse_term(l)?;
             let erest = parse_erest(l)?;
+            l.eat(DOLLAR);
             Ok(EBinop(Box::new(Binexp{op: BPlus, lhs: t, rhs: erest})))
         },
         tok => parse_err!(l, format!("exp: unexpected token {:?}", tok))
@@ -71,7 +73,6 @@ fn parse_erest(l: &mut LexerState) -> Result<Exp,String> {
             Ok(EBinop(Box::new(Binexp{op: BPlus, lhs: t, rhs: erest})))
         },
         DOLLAR => {
-            l.eat(DOLLAR);
             Ok(EI32(0)) //The unit for +
         },
         tok => parse_err!(l, format!("erest: unexpected token {:?}", tok))

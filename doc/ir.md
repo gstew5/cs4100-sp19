@@ -76,7 +76,7 @@ Finally, programs compose sequences of functions (0 or more) with a "main" expre
 
 ```
 Programs
- prog ::= fn1 fn2 ... fnM ; e                      
+ prog ::= fn1 fn2 ... fnM % e                      
 ```
 
 ### Example 1

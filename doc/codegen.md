@@ -267,7 +267,7 @@ Likewise, we'll extend our target language's syntax to support calls and returns
 Instructions 
 i ::== ...        //Everything from before plus:
      | call       //pre_stack  = ... varg1 varg2 ... vargN Vloc(caller_fp) Vloc(target) STACK_TOP
-                  //post_stack = ... varg1 varg2 ... vargN Vloc(caller_fp) Vloc(cur_pc) STACK_TOP
+                  //post_stack = ... varg1 varg2 ... vargN Vloc(caller_fp) Vloc(caller_pc) STACK_TOP
      | ret        //pre_stack  = ... varg1 varg2 ... vargN Vloc(ret_fp) Vloc(ret_pc) vret STACK_TOP        
                   //post_stack = ... vret STACK_TOP
      | setframe i //Push current fp, set fp to stack_len - i - 1

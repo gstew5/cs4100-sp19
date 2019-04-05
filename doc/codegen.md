@@ -194,7 +194,7 @@ In the GrumpyVM, as a function begins executing its body, the stack looks like t
 
 | Stack Position | fp+0 | ... | fp+(N-1) |        |        | (fp+(N-1)+2)+0 | ... | (fp+(N-1)+2)+(M-1) | 
 |----------------|------|-----|----------|--------|--------|----------------|-----|--------------------|
-| **Value**      | arg1 | ... | argN     | ret_fp | ret_pc | loc_var1       | ... | loc_varM           |
+| **Value**      | arg1 | ... | argN     | ret_fp | ret_pc | loc_val1       | ... | loc_valM           |
 
 The `N` arguments are at addresses `fp+0` to `fp+(N-1)` while the function's `M` local variables are stored at addresses `(fp+(N-1)+2)+0` to `(fp+(N-1)+2)+(M-1)`. The weird `+2` term is due to storage on the stack, when a GrumpyVM `call` instruction is executed, of the caller's `ret_fp` and `ret_pc`. Note also that in the GrumpyVM, the caller is responsible for pushing the arguments whereas the callee is responsible for making space on the stack for local variables. We'll come back to this point when we talk about functions below.
 
@@ -343,9 +343,9 @@ We make the simplifying assumption that there is no let-bound variable shadowing
 
 Once we know the let-bound variables of the body of a function `e`, we can construct the compilation environment for the function definition as a map from variable names to their storage locations, as indices `i` from the frame pointer: 
 
-| **Variable**   | arg1 | ... | argN     | let_var1       | ... | let_varM           |
-|----------------|------|-----|----------|----------------|-----|--------------------|
-| **rho**        | 0    | ... | N-1      | (N-1)+2        | ... | (N-1)+2+(M-1)      | 
+| **Variable**   | param1 | ... | paramN   | let_var1       | ... | let_varM           |
+|----------------|--------|-----|----------|----------------|-----|--------------------|
+| **rho**        | 0      | ... | N-1      | (N-1)+2        | ... | (N-1)+2+(M-1)      | 
 
 Variable `x` is stored at `fp + rho(x)`. For example, variable `let_var1` is stored at stack position `fp+(N-1)+2` where `N` is the number of function arguments. The `+2` gap between the arguments `argN` and `let_var1` is to account for the `ret_fp` and `ret_pc` values that are stored on the stack by the caller. 
 
@@ -363,7 +363,9 @@ C[ (fun f param1 param2 ... paramN -> ty e) ] =
   let rho = compilation environment for function, as described above;
   //Compile e, referencing rho
   instrs.append( C_rho[ e ] );
-  //OUTRO: Pop let-bound variables; store return value on top of stack  
+  //OUTRO: 
+  // 1. Store return value at appropriate spot on stack (as expected by ret).
+  // 2. Pop let-bound local variables.
   ...
   instrs.append( ... )
   //Return

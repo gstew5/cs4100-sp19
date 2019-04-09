@@ -84,10 +84,10 @@ Consider, as a second example, the compilation of binary expressions `(b e1 e2)`
 C[ (b e1 e2) ] =
   let instrs1 = C[ e1 ];
   let instrs2 = C[ e2 ];
-  instrs1 ++ instrs2 ++ [binary b]
+  instrs2 ++ instrs1 ++ [binary b]
 ```
 
-First we run the instructions for `e1`, then the instructions for `e2`, then perform binary operation `b`. By the **compilation invariant**, `instrs1 ++ instrs2` leaves the stack with `... v1 v2 STACK_TOP` where `v1` and `v2` are `e1`'s and `e2`'s result values respectively. The binary operation instruction `Binop(b)` pops `v2` then `v1`, replacing both values with the result of executing `b` (e.g., `v1 + v2` if `b = Add`). Note that this case, like the unary case of `C`, produces a state that satisfies the compilation invariant:  The original stack is unchanged apart from pushing the result of binary operation `b` applied to `v1` and `v2`.
+First we run the instructions for `e2`, then the instructions for `e1`, then perform binary operation `b` (note that this enforce right-to-left evaluation order). By the **compilation invariant**, `instrs2 ++ instrs1` leaves the stack with `... v2 v1 STACK_TOP` where `v1` and `v2` are `e1`'s and `e2`'s result values respectively. The binary operation instruction `Binop(b)` pops `v1` then `v2`, replacing both values with the result of executing `b` (e.g., `v1 + v2` if `b = Add`). Note that this case, like the unary case of `C`, produces a state that satisfies the compilation invariant:  The original stack is unchanged apart from pushing the result of binary operation `b` applied to `v1` and `v2`.
 
 ### Example: Conditional Expressions
 

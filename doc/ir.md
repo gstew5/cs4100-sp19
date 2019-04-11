@@ -33,7 +33,7 @@ e ::= v                     //Values
       (call e e1 e2 ... eN) //Call function pointer e  
       (f e1 e2 ... eN)      //Call function f
       
-//Extended expression types:
+//Extended expression types NOT required in PA4:
       (print e)             //Evaluate e to an i32 then print as ASCII by casting to u8
       (spawn eclos)         //Spawn a new thread initialized to run eclos (a heap-allocated closure)
 ```

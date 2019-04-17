@@ -6,7 +6,7 @@ Some recursive functions, those that are *tail recursive*, can be optimized to u
 
 A function *f* makes a *tail call* to a function *g* if the call to *g* is the last thing *f* does before returning (the call is in *tail position*). A function is tail recursive if the only recursive calls it makes are tail calls.   
 
-Consider as an example the following GrumpyIR program that computes the sum of the numbers from 1 to *n*, the *n*th triangular number:
+Consider the following GrumpyIR program that computes the sum of the numbers from 1 to *n*, the *n*th triangular number:
 
 ```
 (fun trian (x i32) -> i32
@@ -69,7 +69,7 @@ _Ltrian2:
   ret
 ```
 
-Note that `trian2` returns directly after making its recursive call (for the purposes of tail call optimization, we can think of the jump to `_L2` followed by `ret` as a single return operation).
+Function `trian2` returns directly after making its recursive call (for the purposes of tail call optimization, we can think of the jump to `_L2` followed by `ret` as a single return operation).
 
 ## Optimizing Tail Recursion 
 
@@ -77,7 +77,7 @@ Tail-recursive functions can be optimized to use constant stack space. Why is th
 
 For a typical non-tail-recursive function, on every recursive call we push a new stack frame to store the local state of the recursive call. When the recursive call returns and its stack frame is popped, the caller uses the return value and its own local state (stored in its own stack frame) to continue executing. In the first `trian` function above for example, we need to remember the value of `x` in order to execute the addition that occurs after the recursive call `(trian (- x 1))`.
 
-For tail-recursive functions, we no longer care about the caller's state. This is because the recursive call is the last thing the function does before returning; it could not possibly perform a computation with an argument like `x`. 
+For tail-recursive functions, we no longer care about the caller's state. This is because the recursive call is the last thing the caller does before returning; it could not possibly perform an additional computation after the call with an argument like `x`. 
 
 The tail recursion optimization exploits this fact (that the caller's state is dead at the point of the tail-recursive call) to have the recursive callee *reuse* the caller's state, thus turning the recursive call into a loop. Applying this transformation to `trian2` above we get:
 

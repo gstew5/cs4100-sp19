@@ -12,6 +12,13 @@ fn use_list() {
                                    Box::new(Cons(l1, Box::new(Nil))));         
 }
 
+fn append<T>(l1: List<T>, l2: List<T>) -> List<T> {
+    match l1 {
+        Nil => l2,
+        Cons(f, r) => Cons(f, Box::new(append(*r, l2)))
+    }
+}
+
 //Expansion/Monomorphization
 #[derive(Clone)]
 enum IntList {
@@ -36,12 +43,8 @@ fn use_intlist() {
                 Box::new(IntListList::Nil))));         
 }
 
-//Coercions
-fn polymorphic_swap<A,B>(p: (A, B)) -> (B, A) {
-    (p.1, p.0)
-}
-
-fn coercion_swap(p: (usize, usize)) -> (usize, usize) {
+//Tagging
+fn swap(p: (usize, usize)) -> (usize, usize) {
     (p.1, p.0)
 }
 
@@ -59,7 +62,7 @@ fn use_tags() {
     a = (((b >> 1) + (c >> 1)) << 1) | 1;
     a_char = (a >> 1) as u8;
 
-    let c = coercion_swap(coercion_swap((a, c))).1;
+    let c = swap(swap((a, c))).1;
     let c_char = c >> 1;
 
     println!("a_char = {}, b_char = {}", a_char, c_char);
